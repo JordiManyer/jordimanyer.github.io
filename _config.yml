@@ -1,4 +1,4 @@
-theme: beautiful-jekyll-theme
+remote-theme: daattali/beautiful-jekyll@5.0.0
 
 ############################
 # --- Required options --- #
