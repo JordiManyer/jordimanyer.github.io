@@ -1,4 +1,4 @@
-remote-theme: daattali/beautiful-jekyll@5.0.0
+remote_theme: daattali/beautiful-jekyll@5.0.0
 
 ############################
 # --- Required options --- #
@@ -274,3 +274,4 @@ exclude:
 plugins:
   - jekyll-paginate
   - jekyll-sitemap
+  - jekyll-remote-theme
