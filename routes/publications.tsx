@@ -1,39 +1,30 @@
+import { Handlers, PageProps } from "$fresh/server.ts";
 import Layout from "../components/Layout.tsx";
 import Head from "../components/Head.tsx";
 import PublicationCard, { type Publication } from "../islands/PublicationCard.tsx";
+import { loadPublications } from "../utils/bibtex.ts";
 
-const publications: Publication[] = [
-  {
-    title: "Gridap: An extensible Finite Element toolbox in Julia",
-    authors: "F. Verdugo, S. Badia, A. F. Martin, S. Claus, R. Royo, J. Manyer",
-    journal: "Journal of Open Source Software",
-    year: 2021,
-    doi: "10.21105/joss.02520",
-    type: "journal-article",
-    bibtex: `@article{Verdugo2021,
-  title = {Gridap: An extensible Finite Element toolbox in Julia},
-  author = {Verdugo, F. and Badia, S. and Martin, A. F. and Claus, S. and Royo, R. and Manyer, J.},
-  journal = {Journal of Open Source Software},
-  year = {2021},
-  doi = {10.21105/joss.02520}
-}`
-  },
-  {
-    title: "GridapDistributed: A distributed-memory implementation of the Gridap finite element library",
-    authors: "J. Manyer, S. Badia, A. F. Martin",
-    journal: "Computer Physics Communications",
-    year: 2023,
-    type: "journal-article",
-    bibtex: `@article{Manyer2023,
-  title = {GridapDistributed: A distributed-memory implementation of the Gridap finite element library},
-  author = {Manyer, J. and Badia, S. and Martin, A. F.},
-  journal = {Computer Physics Communications},
-  year = {2023}
-}`
-  },
-];
+interface Data {
+  publications: Publication[];
+}
 
-export default function Publications() {
+export const handler: Handlers<Data> = {
+  async GET(_, ctx) {
+    try {
+      console.log("Loading publications...");
+      const publications = await loadPublications();
+      console.log(`Loaded ${publications.length} publications`);
+      return ctx.render({ publications });
+    } catch (error) {
+      console.error("Error in publications handler:", error);
+      return ctx.render({ publications: [] });
+    }
+  },
+};
+
+export default function Publications({ data }: PageProps<Data>) {
+  const { publications } = data;
+
   return (
     <>
       <Head
@@ -50,7 +41,7 @@ export default function Publications() {
 
           <div class="space-y-6">
             {publications.map((publication) => (
-              <PublicationCard publication={publication} />
+              <PublicationCard key={publication.title} publication={publication} />
             ))}
           </div>
 
