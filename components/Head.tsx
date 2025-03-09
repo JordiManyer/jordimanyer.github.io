@@ -21,6 +21,22 @@ export default function Head({
 
   return (
     <FreshHead>
+      {/* Theme Script - Must be first to prevent flash */}
+      <script dangerouslySetInnerHTML={{
+        __html: `
+          (function() {
+            try {
+              const theme = localStorage.getItem('theme') || 'system';
+              if (theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+              } else {
+                document.documentElement.classList.remove('dark');
+              }
+            } catch (e) {}
+          })();
+        `
+      }} />
+      
       {/* Basic Meta Tags */}
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
