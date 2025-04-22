@@ -44,7 +44,7 @@ export default function Research() {
             </p>
             <p class="text-gray-700 dark:text-gray-300">
               Current lines of research include:
-              <ul class="list-disc pl-6">
+              <ul class="list-disc pl-6 text-gray-700 dark:text-gray-300">
                 <li>
                   Robust and scalable preconditioners for large-scale multiphysics problems.
                 </li>

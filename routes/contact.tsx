@@ -98,7 +98,7 @@ export default function Contact() {
                   <p class="font-medium text-gray-900 dark:text-gray-100">
                     Social
                   </p>
-                  <div class="space-y-2">
+                  <div class="space-y-0.5">
                     <a
                       href="https://orcid.org/0000-0002-0178-3890"
                       class="block text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 hover:underline"
@@ -114,6 +114,14 @@ export default function Contact() {
                       rel="noopener noreferrer"
                     >
                       GitHub
+                    </a>
+                    <a
+                      href="https://scholar.google.com/citations?user=f3REzuoAAAAJ&hl=en"
+                      class="block text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 hover:underline"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Google Scholar
                     </a>
                     <a
                       href="https://www.linkedin.com/in/jordi-manyer-fuertes/"

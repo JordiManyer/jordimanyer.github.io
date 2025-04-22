@@ -29,29 +29,17 @@ export default function Home() {
           <p class="text-gray-700 dark:text-gray-300">
             Welcome to my academic website. I am a researcher in computational
             mathematics at Monash University, focusing on numerical methods for
-            partial differential equations and scientific computing. My work
-            combines advanced numerical techniques with high-performance
+            partial differential equations and scientific computing.
+          </p>
+          <p class="text-gray-700 dark:text-gray-300">
+            My work combines advanced numerical techniques with high-performance
             computing to develop efficient solvers for complex mathematical
             problems in scientific and engineering applications.
           </p>
-
-          <h2 class="text-gray-900 dark:text-gray-100">Research Interests</h2>
-          <ul class="text-gray-700 dark:text-gray-300">
-            <li>Numerical Methods for PDEs</li>
-            <li>Scientific Computing and High-Performance Computing</li>
-            <li>Finite Element Methods</li>
-            <li>Distributed Computing for Mathematical Applications</li>
-            <li>Computational Mathematics Software Development</li>
-          </ul>
-
-          <h2 class="text-gray-900 dark:text-gray-100">Current Work</h2>
           <p class="text-gray-700 dark:text-gray-300">
-            I am currently working on developing and maintaining several
-            open-source packages in the Gridap.jl ecosystem, a next-generation
-            finite element framework in Julia. My research focuses on creating
-            efficient distributed-memory implementations for large-scale
-            numerical simulations and developing robust numerical solvers for
-            partial differential equations.
+            I am also a 
+            passionate advocate for open-source research and software. I actively contribute to
+            various projects in the Julia scientific computing community.
           </p>
         </section>
 
@@ -62,7 +50,7 @@ export default function Home() {
               class="block p-6 bg-gray-50 dark:bg-gray-800 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
             >
               <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100">
-                Research Projects →
+                My Research →
               </h3>
               <p class="mt-2 text-gray-600 dark:text-gray-300">
                 Explore my current and past research projects
@@ -73,10 +61,32 @@ export default function Home() {
               class="block p-6 bg-gray-50 dark:bg-gray-800 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
             >
               <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100">
-                Publications →
+                My Publications →
               </h3>
               <p class="mt-2 text-gray-600 dark:text-gray-300">
-                View my published papers and articles
+                View my published papers and presentations
+              </p>
+            </a>
+            <a
+              href="/blog"
+              class="block p-6 bg-gray-50 dark:bg-gray-800 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+            >
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100">
+                Blog and News →
+              </h3>
+              <p class="mt-2 text-gray-600 dark:text-gray-300">
+                Read my latest blog posts and news updates
+              </p>
+            </a>
+            <a
+              href="/contact"
+              class="block p-6 bg-gray-50 dark:bg-gray-800 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+            >
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100">
+                Contact Me →
+              </h3>
+              <p class="mt-2 text-gray-600 dark:text-gray-300">
+                Get in touch for collaborations or inquiries
               </p>
             </a>
           </div>
