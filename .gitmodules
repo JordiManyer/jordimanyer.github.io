@@ -1,0 +1,3 @@
+[submodule "curriculum"]
+	path = curriculum
+	url = git@github.com:JordiManyer/curriculum.git

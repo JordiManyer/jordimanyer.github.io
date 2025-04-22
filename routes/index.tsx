@@ -17,7 +17,7 @@ export default function Home() {
               Jordi Manyer
             </h1>
             <p class="text-xl text-gray-600 dark:text-gray-300">
-              Computational Mathematics Researcher
+              PhD Student in Computational Mathematics
             </p>
             <p class="text-lg text-gray-600 dark:text-gray-300">
               School of Mathematics, Monash University
