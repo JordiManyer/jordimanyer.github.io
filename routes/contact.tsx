@@ -11,7 +11,9 @@ export default function Contact() {
         <div class="grid md:grid-cols-2 gap-8">
           <div class="space-y-6">
             <div class="prose dark:prose-invert">
-              <h2 class="text-gray-900 dark:text-gray-100">Contact Information</h2>
+              <h2 class="text-gray-900 dark:text-gray-100">
+                Contact Information
+              </h2>
               <p class="text-gray-700 dark:text-gray-300">
                 Feel free to reach out to me for research collaborations,
                 academic inquiries, or other professional matters.
@@ -34,7 +36,9 @@ export default function Contact() {
                   />
                 </svg>
                 <div>
-                  <p class="font-medium text-gray-900 dark:text-gray-100">Email</p>
+                  <p class="font-medium text-gray-900 dark:text-gray-100">
+                    Email
+                  </p>
                   <a
                     href="mailto:jordi.manyer@monash.edu"
                     class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 hover:underline"
@@ -65,7 +69,9 @@ export default function Contact() {
                   />
                 </svg>
                 <div>
-                  <p class="font-medium text-gray-900 dark:text-gray-100">Location</p>
+                  <p class="font-medium text-gray-900 dark:text-gray-100">
+                    Location
+                  </p>
                   <p class="text-gray-600 dark:text-gray-300">
                     Monash University<br />
                     School of Mathematics<br />
@@ -89,7 +95,9 @@ export default function Contact() {
                   />
                 </svg>
                 <div>
-                  <p class="font-medium text-gray-900 dark:text-gray-100">Social</p>
+                  <p class="font-medium text-gray-900 dark:text-gray-100">
+                    Social
+                  </p>
                   <div class="space-y-2">
                     <a
                       href="https://orcid.org/0000-0002-0178-3890"
@@ -166,7 +174,8 @@ export default function Contact() {
                   name="message"
                   rows={4}
                   class="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:border-gray-500 focus:ring-gray-500 dark:focus:border-gray-400 dark:focus:ring-gray-400"
-                ></textarea>
+                >
+                </textarea>
               </div>
               <button
                 type="submit"
@@ -180,4 +189,4 @@ export default function Contact() {
       </div>
     </Layout>
   );
-} 
+}

@@ -9,9 +9,9 @@ export default function BackToTop() {
 
   const handleScroll = () => {
     if (!ticking.current) {
-      window.requestAnimationFrame(() => {
-        isVisible.value = window.scrollY > 200;
-        lastScrollY.current = window.scrollY;
+      globalThis.requestAnimationFrame(() => {
+        isVisible.value = globalThis.scrollY > 200;
+        lastScrollY.current = globalThis.scrollY;
         ticking.current = false;
       });
       ticking.current = true;
@@ -21,14 +21,14 @@ export default function BackToTop() {
   useEffect(() => {
     if (!IS_BROWSER) return;
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    globalThis.addEventListener("scroll", handleScroll, { passive: true });
+    return () => globalThis.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollToTop = () => {
     if (!IS_BROWSER) return;
-    
-    window.scrollTo({
+
+    globalThis.scrollTo({
       top: 0,
       behavior: "smooth",
     });
@@ -36,9 +36,12 @@ export default function BackToTop() {
 
   return (
     <button
+      type="button"
       onClick={scrollToTop}
       class={`fixed bottom-8 right-8 bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 rounded-full p-3 shadow-lg transition-all duration-300 hover:bg-gray-700 dark:hover:bg-gray-300 focus:outline-none ${
-        isVisible.value ? "opacity-100 translate-y-0" : "opacity-0 translate-y-16"
+        isVisible.value
+          ? "opacity-100 translate-y-0"
+          : "opacity-0 translate-y-16"
       }`}
       aria-label="Back to top"
     >
@@ -58,4 +61,4 @@ export default function BackToTop() {
       </svg>
     </button>
   );
-} 
+}

@@ -35,7 +35,7 @@ function parseBibTeX(bibtex: string): BibTeXEntry[] {
 function formatAuthors(authorString: string): string {
   return authorString
     .split(" and ")
-    .map(author => author.trim())
+    .map((author) => author.trim())
     .join(", ");
 }
 
@@ -44,7 +44,7 @@ export async function loadPublications(): Promise<Publication[]> {
     const bibtex = await Deno.readTextFile("static/publications.bib");
     const entries = parseBibTeX(bibtex);
 
-    return entries.map(entry => {
+    return entries.map((entry) => {
       const publication: Publication = {
         title: entry.fields.title,
         authors: formatAuthors(entry.fields.author),
@@ -55,9 +55,13 @@ export async function loadPublications(): Promise<Publication[]> {
   title = {${entry.fields.title}},
   author = {${entry.fields.author}},
   journal = {${entry.fields.journal}},
-  year = {${entry.fields.year}}${entry.fields.doi ? `,
-  doi = {${entry.fields.doi}}` : ""}
-}`
+  year = {${entry.fields.year}}${
+          entry.fields.doi
+            ? `,
+  doi = {${entry.fields.doi}}`
+            : ""
+        }
+}`,
       };
 
       if (entry.fields.doi) {
@@ -74,4 +78,4 @@ export async function loadPublications(): Promise<Publication[]> {
     console.error("Error loading publications:", error);
     return [];
   }
-} 
+}

@@ -1,7 +1,9 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
 import Layout from "../components/Layout.tsx";
 import Head from "../components/Head.tsx";
-import PublicationCard, { type Publication } from "../islands/PublicationCard.tsx";
+import PublicationCard, {
+  type Publication,
+} from "../islands/PublicationCard.tsx";
 import { loadPublications } from "../utils/bibtex.ts";
 
 interface Data {
@@ -41,12 +43,17 @@ export default function Publications({ data }: PageProps<Data>) {
 
           <div class="space-y-6">
             {publications.map((publication) => (
-              <PublicationCard key={publication.title} publication={publication} />
+              <PublicationCard
+                key={publication.title}
+                publication={publication}
+              />
             ))}
           </div>
 
           <div class="prose dark:prose-invert max-w-none">
-            <h2 class="text-gray-900 dark:text-gray-100">Preprints and Working Papers</h2>
+            <h2 class="text-gray-900 dark:text-gray-100">
+              Preprints and Working Papers
+            </h2>
             <p class="text-gray-700 dark:text-gray-300">
               Coming soon...
             </p>
@@ -55,4 +62,4 @@ export default function Publications({ data }: PageProps<Data>) {
       </Layout>
     </>
   );
-} 
+}

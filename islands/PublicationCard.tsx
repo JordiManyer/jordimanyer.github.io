@@ -11,12 +11,14 @@ export interface Publication {
   bibtex?: string;
 }
 
-export default function PublicationCard({ publication }: { publication: Publication }) {
+export default function PublicationCard(
+  { publication }: { publication: Publication },
+) {
   const isCopied = useSignal(false);
 
   const copyBibtex = async () => {
     if (!publication.bibtex) return;
-    
+
     try {
       await navigator.clipboard.writeText(publication.bibtex);
       isCopied.value = true;
@@ -24,7 +26,7 @@ export default function PublicationCard({ publication }: { publication: Publicat
         isCopied.value = false;
       }, 2000);
     } catch (err) {
-      console.error('Failed to copy:', err);
+      console.error("Failed to copy:", err);
     }
   };
 
@@ -55,6 +57,7 @@ export default function PublicationCard({ publication }: { publication: Publicat
           <>
             <span>•</span>
             <button
+              type="button"
               onClick={copyBibtex}
               class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 hover:underline focus:outline-none"
             >
@@ -72,4 +75,4 @@ export default function PublicationCard({ publication }: { publication: Publicat
       )}
     </div>
   );
-} 
+}

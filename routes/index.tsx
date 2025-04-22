@@ -27,10 +27,12 @@ export default function Home() {
 
         <section class="prose dark:prose-invert max-w-none">
           <p class="text-gray-700 dark:text-gray-300">
-            Welcome to my academic website. I am a researcher in computational mathematics at Monash University,
-            focusing on numerical methods for partial differential equations and scientific computing. 
-            My work combines advanced numerical techniques with high-performance computing to develop 
-            efficient solvers for complex mathematical problems in scientific and engineering applications.
+            Welcome to my academic website. I am a researcher in computational
+            mathematics at Monash University, focusing on numerical methods for
+            partial differential equations and scientific computing. My work
+            combines advanced numerical techniques with high-performance
+            computing to develop efficient solvers for complex mathematical
+            problems in scientific and engineering applications.
           </p>
 
           <h2 class="text-gray-900 dark:text-gray-100">Research Interests</h2>
@@ -44,10 +46,11 @@ export default function Home() {
 
           <h2 class="text-gray-900 dark:text-gray-100">Current Work</h2>
           <p class="text-gray-700 dark:text-gray-300">
-            I am currently working on developing and maintaining several open-source packages 
-            in the Gridap.jl ecosystem, a next-generation finite element framework in Julia. 
-            My research focuses on creating efficient distributed-memory implementations for 
-            large-scale numerical simulations and developing robust numerical solvers for 
+            I am currently working on developing and maintaining several
+            open-source packages in the Gridap.jl ecosystem, a next-generation
+            finite element framework in Julia. My research focuses on creating
+            efficient distributed-memory implementations for large-scale
+            numerical simulations and developing robust numerical solvers for
             partial differential equations.
           </p>
         </section>

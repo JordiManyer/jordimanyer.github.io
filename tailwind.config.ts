@@ -5,18 +5,18 @@ export default {
   content: [
     "{routes,islands,components}/**/*.{ts,tsx}",
   ],
-  darkMode: 'class',
+  darkMode: "class",
   theme: {
     extend: {
       typography: {
         DEFAULT: {
           css: {
-            maxWidth: '100%',
-            color: 'inherit',
+            maxWidth: "100%",
+            color: "inherit",
             a: {
-              color: 'inherit',
-              '&:hover': {
-                color: '#3B82F6',
+              color: "inherit",
+              "&:hover": {
+                color: "#3B82F6",
               },
             },
           },
