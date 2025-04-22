@@ -10,6 +10,7 @@ export interface Publication {
   abstract?: string;
   bibtex?: string;
   arxiv?: string;
+  unpublished: boolean;
 }
 
 export default function PublicationCard(
