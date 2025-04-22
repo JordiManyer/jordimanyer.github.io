@@ -1,14 +1,15 @@
 import { useSignal } from "@preact/signals";
 
 export interface Publication {
+  type: string;
   title: string;
   authors: string;
   journal: string;
   year: number;
   doi?: string;
   abstract?: string;
-  type: string;
   bibtex?: string;
+  arxiv?: string;
 }
 
 export default function PublicationCard(
@@ -50,6 +51,19 @@ export default function PublicationCard(
               rel="noopener noreferrer"
             >
               DOI: {publication.doi}
+            </a>
+          </>
+        )}
+        {publication.arxiv && (
+          <>
+            <span>•</span>
+            <a
+              href={`${publication.arxiv}`}
+              class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 hover:underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              ArXiv
             </a>
           </>
         )}

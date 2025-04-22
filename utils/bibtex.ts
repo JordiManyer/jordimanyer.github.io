@@ -39,6 +39,17 @@ function formatAuthors(authorString: string): string {
     .join(", ");
 }
 
+function generateBibTeXString(entry: BibTeXEntry): string {
+  return `@${entry.type}{${entry.citationKey},
+    title = {${entry.fields.title}},
+    author = {${entry.fields.author}},
+    journal = {${entry.fields.journal}},
+    year = {${entry.fields.year}},
+    ${entry.fields.doi ? "doi = {${entry.fields.doi}}," : ""}
+    ${entry.fields.abstract ? "abstract = {${entry.fields.abstract}}," : ""}
+  }`;
+}
+
 export async function loadPublications(): Promise<Publication[]> {
   try {
     const bibtex = await Deno.readTextFile("static/publications.bib");
@@ -46,22 +57,13 @@ export async function loadPublications(): Promise<Publication[]> {
 
     return entries.map((entry) => {
       const publication: Publication = {
+        type: entry.type.toLowerCase(),
         title: entry.fields.title,
         authors: formatAuthors(entry.fields.author),
         journal: entry.fields.journal,
         year: parseInt(entry.fields.year),
-        type: entry.type.toLowerCase(),
-        bibtex: `@${entry.type}{${entry.citationKey},
-  title = {${entry.fields.title}},
-  author = {${entry.fields.author}},
-  journal = {${entry.fields.journal}},
-  year = {${entry.fields.year}}${
-          entry.fields.doi
-            ? `,
-  doi = {${entry.fields.doi}}`
-            : ""
-        }
-}`,
+        bibtex: generateBibTeXString(entry),
+        unpublished: entry.type.toLowerCase() === "unpublished",
       };
 
       if (entry.fields.doi) {
@@ -70,6 +72,10 @@ export async function loadPublications(): Promise<Publication[]> {
 
       if (entry.fields.abstract) {
         publication.abstract = entry.fields.abstract;
+      }
+
+      if (entry.fields.arxiv) {
+        publication.arxiv = entry.fields.arxiv;
       }
 
       return publication;

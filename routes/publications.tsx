@@ -43,6 +43,7 @@ export default function Publications({ data }: PageProps<Data>) {
 
           <div class="space-y-6">
             {publications.map((publication) => (
+              publication.unpublished ? null : 
               <PublicationCard
                 key={publication.title}
                 publication={publication}
@@ -50,13 +51,18 @@ export default function Publications({ data }: PageProps<Data>) {
             ))}
           </div>
 
-          <div class="prose dark:prose-invert max-w-none">
-            <h2 class="text-gray-900 dark:text-gray-100">
-              Preprints and Working Papers
-            </h2>
-            <p class="text-gray-700 dark:text-gray-300">
-              Coming soon...
-            </p>
+          <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100">
+            Preprints
+          </h1>
+
+          <div class="space-y-6">
+            {publications.map((publication) => (
+              publication.unpublished ? 
+              <PublicationCard
+                key={publication.title}
+                publication={publication}
+              /> : null
+            ))}
           </div>
         </div>
       </Layout>
