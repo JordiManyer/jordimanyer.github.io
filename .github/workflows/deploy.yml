@@ -26,7 +26,13 @@ jobs:
           github_token: ${{ secrets.PAT_TOKEN }}
           workflow: make.yml
           repo: JordiManyer/curriculum
-          path: static
+
+      - name: Copy files
+        run: |
+          cp jordi-manyer-cv.pdf/main.pdf static/jordi-manyer-cv.pdf
+          rm -rf jordi-manyer-cv.pdf
+          cp publications.bib/publications.bib static/publications.bib
+          rm -rf publications.bib
 
       - name: Setup Deno
         uses: denoland/setup-deno@v1
@@ -42,7 +48,7 @@ jobs:
       - name: Build website
         run: deno task build
 
-      - name: Deploy to Deno Deploy
+      - name: Deploy to DenoDeploy
         uses: denoland/deployctl@v1
         with:
           project: jordimanyer-website
