@@ -13,7 +13,7 @@ const blogPosts: BlogPost[] = [
   {
     title: "Joining Monash University",
     date: "2024-03-09",
-    content:`I am thrilled to announce that I have joined Monash University as 
+    content: `I am thrilled to announce that I have joined Monash University as 
     a Computational Mathematics Researcher. In this role, I will be focusing on developing 
     distributed computing solutions for finite element methods. 
     My research will continue to build upon my work with Gridap and GridapDistributed, 
@@ -61,9 +61,9 @@ export default function Blog() {
                   </div>
                 </div>
                 <div class="prose dark:prose-invert max-w-none">
-                    <p class="text-gray-600 dark:text-gray-300">
-                      {post.content.trim()}
-                    </p>
+                  <p class="text-gray-600 dark:text-gray-300">
+                    {post.content.trim()}
+                  </p>
                 </div>
               </article>
             ))}

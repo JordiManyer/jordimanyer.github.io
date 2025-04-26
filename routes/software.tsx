@@ -50,9 +50,11 @@ export default function Software() {
           <div class="prose dark:prose-invert max-w-none">
             <section>
               <p class="text-gray-700 dark:text-gray-300">
-                I am passionate about developing high-quality, open-source scientific software.
-                My projects focus on finite element methods for partial differential equations,
-                with emphasis on high-performance computing. Here are some of my main contributions:
+                I am passionate about developing high-quality, open-source
+                scientific software. My projects focus on finite element methods
+                for partial differential equations, with emphasis on
+                high-performance computing. Here are some of my main
+                contributions:
               </p>
             </section>
 

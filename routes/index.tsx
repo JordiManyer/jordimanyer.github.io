@@ -37,13 +37,14 @@ export default function About() {
           <section class="prose dark:prose-invert max-w-none">
             <p class="text-gray-700 dark:text-gray-300">
               Welcome to my academic website. I am a researcher in computational
-              mathematics at Monash University. My research revolves around numerical methods for
-              partial differential equations, with focus on finite-element methods and 
-              high-performance computing.
+              mathematics at Monash University. My research revolves around
+              numerical methods for partial differential equations, with focus
+              on finite-element methods and high-performance computing.
             </p>
             <p class="text-gray-700 dark:text-gray-300">
-              I am also a passionate advocate for open-source research and software. I actively contribute to
-              various projects in the Julia scientific computing community.
+              I am also a passionate advocate for open-source research and
+              software. I actively contribute to various projects in the Julia
+              scientific computing community.
             </p>
             <p class="text-gray-700 dark:text-gray-300">
               Current research interests include:
@@ -59,7 +60,7 @@ export default function About() {
             <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100">
               Contact Information
             </h2>
-            
+
             <div class="grid md:grid-cols-2 gap-6">
               {/* Contact Details - Left Column */}
               <div class="space-y-6">
@@ -78,7 +79,9 @@ export default function About() {
                     />
                   </svg>
                   <div>
-                    <p class="font-medium text-gray-900 dark:text-gray-100">Email</p>
+                    <p class="font-medium text-gray-900 dark:text-gray-100">
+                      Email
+                    </p>
                     <a
                       href="mailto:jordi.manyer@monash.edu"
                       class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 hover:underline"
@@ -109,7 +112,9 @@ export default function About() {
                     />
                   </svg>
                   <div>
-                    <p class="font-medium text-gray-900 dark:text-gray-100">Location</p>
+                    <p class="font-medium text-gray-900 dark:text-gray-100">
+                      Location
+                    </p>
                     <p class="text-gray-600 dark:text-gray-300">
                       School of Mathematics, Monash University<br />
                       9 Rainforest Walk, Clayton VIC 3168<br />
@@ -134,7 +139,9 @@ export default function About() {
                   />
                 </svg>
                 <div>
-                  <p class="font-medium text-gray-900 dark:text-gray-100">Social</p>
+                  <p class="font-medium text-gray-900 dark:text-gray-100">
+                    Social
+                  </p>
                   <div class="space-y-1">
                     <a
                       href="https://orcid.org/0000-0002-0178-3890"
