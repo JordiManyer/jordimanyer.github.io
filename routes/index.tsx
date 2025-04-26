@@ -61,7 +61,7 @@ export default function About() {
             </h2>
             
             <div class="grid md:grid-cols-2 gap-6">
-              {/* Contact Details */}
+              {/* Contact Details - Left Column */}
               <div class="space-y-6">
                 <div class="flex items-start space-x-3">
                   <svg
@@ -111,102 +111,65 @@ export default function About() {
                   <div>
                     <p class="font-medium text-gray-900 dark:text-gray-100">Location</p>
                     <p class="text-gray-600 dark:text-gray-300">
-                      Monash University<br />
-                      School of Mathematics<br />
-                      Melbourne, Australia
+                      School of Mathematics, Monash University<br />
+                      9 Rainforest Walk, Clayton VIC 3168<br />
                     </p>
-                  </div>
-                </div>
-
-                <div class="flex items-start space-x-3">
-                  <svg
-                    class="w-6 h-6 text-gray-600 dark:text-gray-400"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                    />
-                  </svg>
-                  <div>
-                    <p class="font-medium text-gray-900 dark:text-gray-100">Social</p>
-                    <div class="space-y-1">
-                      <a
-                        href="https://orcid.org/0000-0002-0178-3890"
-                        class="block text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 hover:underline"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        ORCID
-                      </a>
-                      <a
-                        href="https://github.com/JordiManyer"
-                        class="block text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 hover:underline"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        GitHub
-                      </a>
-                      <a
-                        href="https://scholar.google.com/citations?user=f3REzuoAAAAJ&hl=en"
-                        class="block text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 hover:underline"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        Google Scholar
-                      </a>
-                      <a
-                        href="https://www.linkedin.com/in/jordi-manyer-fuertes/"
-                        class="block text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 hover:underline"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        LinkedIn
-                      </a>
-                    </div>
                   </div>
                 </div>
               </div>
 
-              {/* Quick Links */}
-              <div class="grid grid-cols-1 gap-4">
-                <a
-                  href="/software"
-                  class="block p-6 bg-gray-50 dark:bg-gray-800 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+              {/* Social Links - Right Column */}
+              <div class="flex items-start space-x-3">
+                <svg
+                  class="w-6 h-6 text-gray-600 dark:text-gray-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
                 >
-                  <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100">
-                    My Software →
-                  </h3>
-                  <p class="mt-2 text-gray-600 dark:text-gray-300">
-                    Explore my open source software projects
-                  </p>
-                </a>
-                <a
-                  href="/publications"
-                  class="block p-6 bg-gray-50 dark:bg-gray-800 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
-                >
-                  <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100">
-                    My Publications →
-                  </h3>
-                  <p class="mt-2 text-gray-600 dark:text-gray-300">
-                    View my published papers and presentations
-                  </p>
-                </a>
-{/*                 <a
-                  href="/blog"
-                  class="block p-6 bg-gray-50 dark:bg-gray-800 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
-                >
-                  <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100">
-                    Blog and News →
-                  </h3>
-                  <p class="mt-2 text-gray-600 dark:text-gray-300">
-                    Read my latest blog posts and news updates
-                  </p>
-                </a> */}
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                  />
+                </svg>
+                <div>
+                  <p class="font-medium text-gray-900 dark:text-gray-100">Social</p>
+                  <div class="space-y-1">
+                    <a
+                      href="https://orcid.org/0000-0002-0178-3890"
+                      class="block text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 hover:underline"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      ORCID
+                    </a>
+                    <a
+                      href="https://github.com/JordiManyer"
+                      class="block text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 hover:underline"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      GitHub
+                    </a>
+                    <a
+                      href="https://scholar.google.com/citations?user=f3REzuoAAAAJ&hl=en"
+                      class="block text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 hover:underline"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Google Scholar
+                    </a>
+                    <a
+                      href="https://www.linkedin.com/in/jordi-manyer-fuertes/"
+                      class="block text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 hover:underline"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      LinkedIn
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
           </section>
