@@ -10,22 +10,25 @@ jobs:
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
-    container:
-      image: thomasweise/docker-texlive-full:latest
 
     steps:
       - name: Git Checkout
         uses: actions/checkout@v4
+
+      - name: Download CV
+        uses: dawidd6/action-download-artifact@v9
         with:
-          submodules: recursive
-          token: ${{ secrets.PAT_TOKEN }}  # Personal Access Token with repo scope
+          github_token: ${{ secrets.PAT_TOKEN }}
+          workflow: make.yml
+          repo: JordiManyer/curriculum
+          path: static
 
       - name: Setup Deno
         uses: denoland/setup-deno@v1
         with:
           deno-version: v2.x
 
-      # - name: Verify formatting
+      # - nameVerify formatting
       #   run: deno fmt --check
 
       - name: Run linter
