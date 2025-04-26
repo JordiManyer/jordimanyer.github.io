@@ -48,7 +48,7 @@ export default function About() {
             </p>
             <p class="text-gray-700 dark:text-gray-300">
               Current research interests include:
-              <ul class="list-disc list-inside">
+              <ul class="list-disc list-inside text-gray-700 dark:text-gray-300">
                 <li>Robust and scalable solvers for multiphysics problems.</li>
                 <li>Non-conforming hybrid polytopal methods.</li>
               </ul>
