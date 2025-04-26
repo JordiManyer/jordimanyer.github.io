@@ -37,6 +37,20 @@ export default function Publications({ data }: PageProps<Data>) {
       />
       <Layout active="/publications">
         <div class="space-y-8">
+        <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100">
+            Preprints
+          </h1>
+
+          <div class="space-y-6">
+            {publications.map((publication) => (
+              publication.unpublished ? 
+              <PublicationCard
+                key={publication.title}
+                publication={publication}
+              /> : null
+            ))}
+          </div>
+          
           <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100">
             Publications
           </h1>
@@ -48,20 +62,6 @@ export default function Publications({ data }: PageProps<Data>) {
                 key={publication.title}
                 publication={publication}
               />
-            ))}
-          </div>
-
-          <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100">
-            Preprints
-          </h1>
-
-          <div class="space-y-6">
-            {publications.map((publication) => (
-              publication.unpublished ? 
-              <PublicationCard
-                key={publication.title}
-                publication={publication}
-              /> : null
             ))}
           </div>
         </div>

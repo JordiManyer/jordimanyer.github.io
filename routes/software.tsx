@@ -47,8 +47,8 @@ export default function Software() {
             <section>
               <p class="text-gray-700 dark:text-gray-300">
                 I am passionate about developing high-quality, open-source scientific software.
-                My projects focus on numerical computing, particularly in the field of finite element methods
-                and scientific computing. Here are some of my main contributions:
+                My projects focus on finite element methods for partial differential equations,
+                with emphasis on high-performance computing. Here are some of my main contributions:
               </p>
             </section>
 
