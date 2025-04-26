@@ -28,19 +28,32 @@ jobs:
         with:
           packages: >-
             scheme-basic
-            moderncv
+            etoolbox
+            ifthen
+            ifxetex
+            ifluatex
+            url
+            graphicx
+            fancyhdr
+            tweaklist
+            calc
+            xsparse
+            microtype
+            expl3
+            tikz
+            changepage
+            fontawesome5
+            academicons
+            marvosym
             multirow
             arydshln
-            fontawesome5
-            multibib
-            microtype
-            geometry
-            hyperref
+            tgpagella
+            lmodern
             xcolor
+            ebgaramond
+            hyperref
             pgf
             tools
-            graphics
-            fancyhdr
 
       # - name: Verify formatting
       #   run: deno fmt --check
