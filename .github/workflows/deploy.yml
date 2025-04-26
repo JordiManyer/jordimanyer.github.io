@@ -39,14 +39,15 @@ jobs:
             graphics
             fancyhdr
 
+      # Uncomment this step to verify the use of 'deno fmt' on each commit.
+      # - name: Verify formatting
+      #   run: deno fmt --check
+
+      - name: Run linter
+        run: deno lint
+
+      - name: Run tests
+        run: deno test -A
+
       - name: Build website
         run: deno task build
-
-      - name: Deploy to GitHub Pages
-        if: success() && github.ref == 'refs/heads/main'
-        uses: crazy-max/ghaction-github-pages@v4
-        with:
-          target_branch: gh-pages
-          build_dir: _fresh
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
