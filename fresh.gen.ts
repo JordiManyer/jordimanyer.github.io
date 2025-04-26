@@ -5,10 +5,9 @@
 import * as $_404 from "./routes/_404.tsx";
 import * as $_app from "./routes/_app.tsx";
 import * as $blog from "./routes/blog.tsx";
-import * as $contact from "./routes/contact.tsx";
 import * as $index from "./routes/index.tsx";
 import * as $publications from "./routes/publications.tsx";
-import * as $research from "./routes/research.tsx";
+import * as $software from "./routes/software.tsx";
 import * as $BackToTop from "./islands/BackToTop.tsx";
 import * as $MobileNav from "./islands/MobileNav.tsx";
 import * as $PublicationCard from "./islands/PublicationCard.tsx";
@@ -20,10 +19,9 @@ const manifest = {
     "./routes/_404.tsx": $_404,
     "./routes/_app.tsx": $_app,
     "./routes/blog.tsx": $blog,
-    "./routes/contact.tsx": $contact,
     "./routes/index.tsx": $index,
     "./routes/publications.tsx": $publications,
-    "./routes/research.tsx": $research,
+    "./routes/software.tsx": $software,
   },
   islands: {
     "./islands/BackToTop.tsx": $BackToTop,

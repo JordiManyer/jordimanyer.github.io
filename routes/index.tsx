@@ -1,97 +1,214 @@
 import Layout from "../components/Layout.tsx";
+import Head from "../components/Head.tsx";
 
-export default function Home() {
+export default function About() {
   return (
-    <Layout active="/">
-      <div class="space-y-8">
-        <section class="text-center space-y-6">
-          <div class="flex justify-center">
-            <img
-              src="https://github.com/JordiManyer.png"
-              alt="Jordi Manyer"
-              class="w-48 h-48 rounded-full shadow-lg border-2 border-gray-200 dark:border-gray-700"
-            />
-          </div>
-          <div class="space-y-4">
-            <h1 class="text-4xl font-bold text-gray-900 dark:text-gray-100">
-              Jordi Manyer
-            </h1>
-            <p class="text-xl text-gray-600 dark:text-gray-300">
-              PhD Student in Computational Mathematics
-            </p>
-            <p class="text-lg text-gray-600 dark:text-gray-300">
-              School of Mathematics, Monash University
-            </p>
-          </div>
-        </section>
+    <>
+      <Head
+        title="About"
+        description="About Jordi Manyer - Computational Mathematics Researcher at Monash University"
+        path="/"
+      />
+      <Layout active="/">
+        <div class="space-y-12">
+          {/* Profile Section */}
+          <section class="text-center space-y-6">
+            <div class="flex justify-center">
+              <img
+                src="https://github.com/JordiManyer.png"
+                alt="Jordi Manyer"
+                class="w-48 h-48 rounded-full shadow-lg border-2 border-gray-200 dark:border-gray-700"
+              />
+            </div>
+            <div class="space-y-4">
+              <h1 class="text-4xl font-bold text-gray-900 dark:text-gray-100">
+                Jordi Manyer
+              </h1>
+              <p class="text-xl text-gray-600 dark:text-gray-300">
+                PhD Student in Computational Mathematics
+              </p>
+              <p class="text-lg text-gray-600 dark:text-gray-300">
+                School of Mathematics, Monash University
+              </p>
+            </div>
+          </section>
 
-        <section class="prose dark:prose-invert max-w-none">
-          <p class="text-gray-700 dark:text-gray-300">
-            Welcome to my academic website. I am a researcher in computational
-            mathematics at Monash University, focusing on numerical methods for
-            partial differential equations and scientific computing.
-          </p>
-          <p class="text-gray-700 dark:text-gray-300">
-            My work combines advanced numerical techniques with high-performance
-            computing to develop efficient solvers for complex mathematical
-            problems in scientific and engineering applications.
-          </p>
-          <p class="text-gray-700 dark:text-gray-300">
-            I am also a 
-            passionate advocate for open-source research and software. I actively contribute to
-            various projects in the Julia scientific computing community.
-          </p>
-        </section>
+          {/* About Section */}
+          <section class="prose dark:prose-invert max-w-none">
+            <p class="text-gray-700 dark:text-gray-300">
+              Welcome to my academic website. I am a researcher in computational
+              mathematics at Monash University, focusing on numerical methods for
+              partial differential equations and scientific computing.
+            </p>
+            <p class="text-gray-700 dark:text-gray-300">
+              My work combines advanced numerical techniques with high-performance
+              computing to develop efficient solvers for complex mathematical
+              problems in scientific and engineering applications.
+            </p>
+            <p class="text-gray-700 dark:text-gray-300">
+              I am also a passionate advocate for open-source research and software. I actively contribute to
+              various projects in the Julia scientific computing community.
+            </p>
+          </section>
 
-        <section class="mt-8">
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <a
-              href="/research"
-              class="block p-6 bg-gray-50 dark:bg-gray-800 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
-            >
-              <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100">
-                My Research →
-              </h3>
-              <p class="mt-2 text-gray-600 dark:text-gray-300">
-                Explore my current and past research projects
-              </p>
-            </a>
-            <a
-              href="/publications"
-              class="block p-6 bg-gray-50 dark:bg-gray-800 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
-            >
-              <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100">
-                My Publications →
-              </h3>
-              <p class="mt-2 text-gray-600 dark:text-gray-300">
-                View my published papers and presentations
-              </p>
-            </a>
-            <a
-              href="/blog"
-              class="block p-6 bg-gray-50 dark:bg-gray-800 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
-            >
-              <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100">
-                Blog and News →
-              </h3>
-              <p class="mt-2 text-gray-600 dark:text-gray-300">
-                Read my latest blog posts and news updates
-              </p>
-            </a>
-            <a
-              href="/contact"
-              class="block p-6 bg-gray-50 dark:bg-gray-800 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
-            >
-              <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100">
-                Contact Me →
-              </h3>
-              <p class="mt-2 text-gray-600 dark:text-gray-300">
-                Get in touch for collaborations or inquiries
-              </p>
-            </a>
-          </div>
-        </section>
-      </div>
-    </Layout>
+          {/* Contact Information */}
+          <section class="space-y-6">
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100">
+              Contact Information
+            </h2>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+              {/* Contact Details */}
+              <div class="space-y-6">
+                <div class="flex items-start space-x-3">
+                  <svg
+                    class="w-6 h-6 text-gray-600 dark:text-gray-400"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                    />
+                  </svg>
+                  <div>
+                    <p class="font-medium text-gray-900 dark:text-gray-100">Email</p>
+                    <a
+                      href="mailto:jordi.manyer@monash.edu"
+                      class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 hover:underline"
+                    >
+                      jordi.manyer@monash.edu
+                    </a>
+                  </div>
+                </div>
+
+                <div class="flex items-start space-x-3">
+                  <svg
+                    class="w-6 h-6 text-gray-600 dark:text-gray-400"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                    />
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                    />
+                  </svg>
+                  <div>
+                    <p class="font-medium text-gray-900 dark:text-gray-100">Location</p>
+                    <p class="text-gray-600 dark:text-gray-300">
+                      Monash University<br />
+                      School of Mathematics<br />
+                      Melbourne, Australia
+                    </p>
+                  </div>
+                </div>
+
+                <div class="flex items-start space-x-3">
+                  <svg
+                    class="w-6 h-6 text-gray-600 dark:text-gray-400"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                    />
+                  </svg>
+                  <div>
+                    <p class="font-medium text-gray-900 dark:text-gray-100">Social</p>
+                    <div class="space-y-1">
+                      <a
+                        href="https://orcid.org/0000-0002-0178-3890"
+                        class="block text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 hover:underline"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        ORCID
+                      </a>
+                      <a
+                        href="https://github.com/JordiManyer"
+                        class="block text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 hover:underline"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        GitHub
+                      </a>
+                      <a
+                        href="https://scholar.google.com/citations?user=f3REzuoAAAAJ&hl=en"
+                        class="block text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 hover:underline"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Google Scholar
+                      </a>
+                      <a
+                        href="https://www.linkedin.com/in/jordi-manyer-fuertes/"
+                        class="block text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 hover:underline"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        LinkedIn
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Quick Links */}
+              <div class="grid grid-cols-1 gap-4">
+                <a
+                  href="/software"
+                  class="block p-6 bg-gray-50 dark:bg-gray-800 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                >
+                  <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100">
+                    My Software →
+                  </h3>
+                  <p class="mt-2 text-gray-600 dark:text-gray-300">
+                    Explore my open source software projects
+                  </p>
+                </a>
+                <a
+                  href="/publications"
+                  class="block p-6 bg-gray-50 dark:bg-gray-800 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                >
+                  <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100">
+                    My Publications →
+                  </h3>
+                  <p class="mt-2 text-gray-600 dark:text-gray-300">
+                    View my published papers and presentations
+                  </p>
+                </a>
+                <a
+                  href="/blog"
+                  class="block p-6 bg-gray-50 dark:bg-gray-800 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                >
+                  <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100">
+                    Blog and News →
+                  </h3>
+                  <p class="mt-2 text-gray-600 dark:text-gray-300">
+                    Read my latest blog posts and news updates
+                  </p>
+                </a>
+              </div>
+            </div>
+          </section>
+        </div>
+      </Layout>
+    </>
   );
 }

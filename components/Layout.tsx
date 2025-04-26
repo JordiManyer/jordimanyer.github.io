@@ -11,11 +11,10 @@ interface LayoutProps {
 
 export default function Layout({ children, active }: LayoutProps) {
   const links = [
-    { href: "/", text: "Home" },
-    { href: "/research", text: "Research" },
+    { href: "/", text: "About" },
+    { href: "/software", text: "Software" },
     { href: "/publications", text: "Publications" },
     { href: "/blog", text: "Blog" },
-    { href: "/contact", text: "Contact" },
   ];
 
   return (
