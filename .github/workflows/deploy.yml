@@ -14,6 +14,9 @@ jobs:
     steps:
       - name: Git Checkout
         uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          token: ${{ secrets.PAT_TOKEN }}  # Personal Access Token with repo scope
 
       - name: Setup Deno
         uses: denoland/setup-deno@v1
