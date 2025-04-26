@@ -40,7 +40,7 @@ export default function Layout({ children, active }: LayoutProps) {
               </div>
               <div class="flex items-center space-x-4">
                 <a
-                  href="/static/jordimanyercv.pdf"
+                  href="/jordimanyercv.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   class="text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
@@ -73,7 +73,7 @@ export default function Layout({ children, active }: LayoutProps) {
               <MobileNav links={links} active={active} />
               <div class="flex items-center space-x-4">
                 <a
-                  href="/static/jordimanyercv.pdf"
+                  href="/jordimanyercv.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   class="text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
