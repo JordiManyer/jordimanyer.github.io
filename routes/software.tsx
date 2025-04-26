@@ -15,14 +15,21 @@ export default function Software() {
       description:
         "A next-generation finite element framework in Julia for the grid-based approximation of partial differential equations. The framework provides a high-level API that allows users to write FEM code that closely resembles the mathematical notation.",
       link: "https://github.com/gridap/Gridap.jl",
-      role: "Owner and lead developer",
+      role: "Owner and maintainer",
     },
     {
       title: "GridapSolvers.jl",
       description:
         "A collection of solvers and preconditioners specifically designed for the Gridap ecosystem. This package provides efficient numerical methods for solving large-scale linear and nonlinear systems arising from FEM discretizations.",
       link: "https://github.com/gridap/GridapSolvers.jl",
-      role: "Founder, owner and lead developer",
+      role: "Founder, owner and maintainer",
+    },
+    {
+      title: "GridapTopOpt.jl",
+      description:
+        "Level-set-based topology optimisation for the Gridap ecosystem.",
+      link: "https://github.com/zjwegert/GridapTopOpt.jl",
+      role: "Founder, owner and maintainer",
     },
   ];
 
