@@ -4,7 +4,6 @@ import Head from "../components/Head.tsx";
 interface BlogPost {
   title: string;
   date: string;
-  summary: string;
   content: string;
   tags: string[];
   slug: string;
@@ -14,14 +13,11 @@ const blogPosts: BlogPost[] = [
   {
     title: "Joining Monash University",
     date: "2024-03-09",
-    summary:
-      "Excited to announce my new position as a Computational Mathematics Researcher at Monash University.",
-    content:
-      `I am thrilled to announce that I have joined Monash University as a Computational Mathematics Researcher. 
-    In this role, I will be focusing on developing distributed computing solutions for finite element methods.
-    
-    My research will continue to build upon my work with Gridap and GridapDistributed, aiming to push the boundaries
-    of what's possible in large-scale scientific computing.`,
+    content:`I am thrilled to announce that I have joined Monash University as 
+    a Computational Mathematics Researcher. In this role, I will be focusing on developing 
+    distributed computing solutions for finite element methods. 
+    My research will continue to build upon my work with Gridap and GridapDistributed, 
+    aiming to push the boundaries of what's possible in large-scale scientific computing.`,
     tags: ["career", "research", "announcement"],
     slug: "joining-monash-university",
   },
@@ -64,15 +60,10 @@ export default function Blog() {
                     ))}
                   </div>
                 </div>
-                <p class="text-gray-600 dark:text-gray-300 mb-4">
-                  {post.summary}
-                </p>
                 <div class="prose dark:prose-invert max-w-none">
-                  {post.content.split("\n").map((paragraph) => (
                     <p class="text-gray-600 dark:text-gray-300">
-                      {paragraph.trim()}
+                      {post.content.trim()}
                     </p>
-                  ))}
                 </div>
               </article>
             ))}

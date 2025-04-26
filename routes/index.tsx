@@ -37,17 +37,20 @@ export default function About() {
           <section class="prose dark:prose-invert max-w-none">
             <p class="text-gray-700 dark:text-gray-300">
               Welcome to my academic website. I am a researcher in computational
-              mathematics at Monash University, focusing on numerical methods for
-              partial differential equations and scientific computing.
-            </p>
-            <p class="text-gray-700 dark:text-gray-300">
-              My work combines advanced numerical techniques with high-performance
-              computing to develop efficient solvers for complex mathematical
-              problems in scientific and engineering applications.
+              mathematics at Monash University. My research revolves around numerical methods for
+              partial differential equations, with focus on finite-element methods and 
+              high-performance computing.
             </p>
             <p class="text-gray-700 dark:text-gray-300">
               I am also a passionate advocate for open-source research and software. I actively contribute to
               various projects in the Julia scientific computing community.
+            </p>
+            <p class="text-gray-700 dark:text-gray-300">
+              Current research interests include:
+              <ul class="list-disc list-inside">
+                <li>Robust and scalable solvers for multiphysics problems.</li>
+                <li>Non-conforming hybrid polytopal methods.</li>
+              </ul>
             </p>
           </section>
 
@@ -193,7 +196,7 @@ export default function About() {
                     View my published papers and presentations
                   </p>
                 </a>
-                <a
+{/*                 <a
                   href="/blog"
                   class="block p-6 bg-gray-50 dark:bg-gray-800 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
                 >
@@ -203,7 +206,7 @@ export default function About() {
                   <p class="mt-2 text-gray-600 dark:text-gray-300">
                     Read my latest blog posts and news updates
                   </p>
-                </a>
+                </a> */}
               </div>
             </div>
           </section>

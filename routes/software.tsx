@@ -5,7 +5,6 @@ interface Project {
   title: string;
   description: string;
   link: string;
-  tags: string[];
   role?: string;
 }
 
@@ -16,7 +15,6 @@ export default function Software() {
       description:
         "A next-generation finite element framework in Julia for the grid-based approximation of partial differential equations. The framework provides a high-level API that allows users to write FEM code that closely resembles the mathematical notation.",
       link: "https://github.com/gridap/Gridap.jl",
-      tags: ["Numerical Methods", "PDEs", "Finite Elements", "Julia"],
       role: "Owner and lead developer",
     },
     {
@@ -24,7 +22,6 @@ export default function Software() {
       description:
         "A collection of solvers and preconditioners specifically designed for the Gridap ecosystem. This package provides efficient numerical methods for solving large-scale linear and nonlinear systems arising from FEM discretizations.",
       link: "https://github.com/gridap/GridapSolvers.jl",
-      tags: ["Numerical Solvers", "Preconditioners", "Linear Algebra", "Julia"],
       role: "Founder, owner and lead developer",
     },
   ];
@@ -73,13 +70,6 @@ export default function Software() {
                           Role: {project.role}
                         </p>
                       )}
-                      <div class="flex flex-wrap gap-2">
-                        {project.tags.map((tag) => (
-                          <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-sm rounded">
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
                     </a>
                   ))}
                 </div>

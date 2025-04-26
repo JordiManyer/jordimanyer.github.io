@@ -14,7 +14,7 @@ export default function Layout({ children, active }: LayoutProps) {
     { href: "/", text: "About" },
     { href: "/software", text: "Software" },
     { href: "/publications", text: "Publications" },
-    { href: "/blog", text: "Blog" },
+/*     { href: "/blog", text: "Blog" }, */
   ];
 
   return (
