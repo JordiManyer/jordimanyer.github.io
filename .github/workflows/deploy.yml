@@ -15,9 +15,6 @@ jobs:
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
       - name: Git Checkout
@@ -45,14 +42,8 @@ jobs:
       - name: Build website
         run: deno task build
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Deploy to Deno Deploy
+        uses: denoland/deployctl@v1
         with:
-          path: "."
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          project: jordimanyer-website
+          entrypoint: main.ts
