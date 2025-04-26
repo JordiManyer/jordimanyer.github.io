@@ -10,6 +10,8 @@ jobs:
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
+    container:
+      image: thomasweise/docker-texlive-full:latest
 
     steps:
       - name: Git Checkout
@@ -22,38 +24,6 @@ jobs:
         uses: denoland/setup-deno@v1
         with:
           deno-version: v2.x
-
-      - name: Setup TeX Live
-        uses: teatimeguest/setup-texlive-action@v3
-        with:
-          packages: >-
-            scheme-basic
-            etoolbox
-            ifthen
-            ifxetex
-            ifluatex
-            url
-            graphicx
-            fancyhdr
-            tweaklist
-            calc
-            xsparse
-            microtype
-            expl3
-            tikz
-            changepage
-            fontawesome5
-            academicons
-            marvosym
-            multirow
-            arydshln
-            tgpagella
-            lmodern
-            xcolor
-            ebgaramond
-            hyperref
-            pgf
-            tools
 
       # - name: Verify formatting
       #   run: deno fmt --check
