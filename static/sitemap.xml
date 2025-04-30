@@ -1,28 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://jordimanyer.github.io/</loc>
+    <loc>https://jordimanyer.deno.dev/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://jordimanyer.github.io/research</loc>
+    <loc>https://jordimanyer.deno.dev/software</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://jordimanyer.github.io/publications</loc>
+    <loc>https://jordimanyer.deno.dev/publications</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://jordimanyer.github.io/blog</loc>
+    <loc>https://jordimanyer.deno.dev/blog</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
-    <loc>https://jordimanyer.github.io/contact</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-</urlset> 
+</urlset>

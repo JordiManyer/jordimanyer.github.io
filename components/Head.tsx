@@ -10,17 +10,15 @@ interface HeadProps {
 
 export default function Head({
   title = "Jordi Manyer",
-  description =
-    "Computational Mathematics Researcher at Monash University, specializing in distributed computing and finite element methods.",
+  description = "Jordi Manyer's personal website.",
   image = "/profile.jpg",
   type = "website",
   path = "",
 }: HeadProps) {
-  const siteUrl = "https://jordimanyer.github.io";
+  const siteUrl = "https://jordimanyer.deno.dev";
   const fullUrl = `${siteUrl}${path}`;
-  const fullTitle = title === "Jordi Manyer"
-    ? title
-    : `${title} | Jordi Manyer`;
+  const fullTitle = title === "Jordi Manyer" ? title : `${title} | Jordi Manyer`;
+  const faviconFolder = "/favicon_Skranji_J"
 
   return (
     <FreshHead>
@@ -38,6 +36,7 @@ export default function Head({
       <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
 
       {/* Basic Meta Tags */}
+      <html lang="en" /> {/* Language declaration */}
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
       <meta name="author" content="Jordi Manyer" />
@@ -54,6 +53,7 @@ export default function Head({
       />
       <meta name="color-scheme" content="light dark" />
       <link rel="canonical" href={fullUrl} />
+      <meta name="robots" content="index, follow" />
 
       {/* Open Graph Tags */}
       <meta property="og:title" content={fullTitle} />
@@ -75,32 +75,39 @@ export default function Head({
       <meta name="citation_author_institution" content="Monash University" />
       <meta
         name="keywords"
-        content="computational mathematics, distributed computing, finite element methods, scientific computing, Jordi Manyer"
+        content="computational mathematics, distributed computing, finite element methods, scientific computing, high-performance computing, Jordi Manyer, Monash University"
       />
 
       {/* Favicon */}
-      <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+      <link rel="icon" type="image/x-icon" href={`${faviconFolder}/favicon.ico`} />
+      <link rel="icon" type="image/png" sizes="32x32" href={`${faviconFolder}/favicon-32x32.png`} />
+      <link rel="icon" type="image/png" sizes="16x16" href={`${faviconFolder}/favicon-16x16.png`} />
       <link
         rel="apple-touch-icon"
         sizes="180x180"
-        href="/apple-touch-icon.png"
+        href={`${faviconFolder}/apple-touch-icon.png`}
       />
 
-      {/* Schema.org for Google Scholar */}
+      {/* Schema.org for Google Scholar and Rich Results */}
       <script type="application/ld+json">
         {JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Person",
           "name": "Jordi Manyer",
+          "givenName": "Jordi",
+          "familyName": "Manyer",
+          "email": "jordi.manyer@monash.edu",
           "jobTitle": "Computational Mathematics Researcher",
           "affiliation": {
             "@type": "Organization",
             "name": "Monash University",
+            "@id": "https://www.monash.edu/"
           },
           "url": siteUrl,
           "sameAs": [
-            "https://github.com/jordimanyer",
+            "https://scholar.google.com.au/citations?user=f3REzuoAAAAJ&hl=en&authuser=4",
             "https://orcid.org/0000-0002-0178-3890",
+            "https://www.linkedin.com/in/jordi-manyer-fuertes/"
           ],
           "alumniOf": [],
           "knowsAbout": [
@@ -108,8 +115,13 @@ export default function Head({
             "Distributed Computing",
             "Finite Element Methods",
             "Scientific Computing",
-            "High-Performance Computing",
+            "High-Performance Computing"
           ],
+          "image": `${siteUrl}${image}`,
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": fullUrl
+          }
         })}
       </script>
     </FreshHead>
