@@ -17,8 +17,10 @@ export default function Head({
 }: HeadProps) {
   const siteUrl = "https://jordimanyer.deno.dev";
   const fullUrl = `${siteUrl}${path}`;
-  const fullTitle = title === "Jordi Manyer" ? title : `${title} | Jordi Manyer`;
-  const faviconFolder = "/favicon_Skranji_J"
+  const fullTitle = title === "Jordi Manyer"
+    ? title
+    : `${title} | Jordi Manyer`;
+  const faviconFolder = "/favicon_Skranji_J";
 
   return (
     <FreshHead>
@@ -79,9 +81,23 @@ export default function Head({
       />
 
       {/* Favicon */}
-      <link rel="icon" type="image/x-icon" href={`${faviconFolder}/favicon.ico`} />
-      <link rel="icon" type="image/png" sizes="32x32" href={`${faviconFolder}/favicon-32x32.png`} />
-      <link rel="icon" type="image/png" sizes="16x16" href={`${faviconFolder}/favicon-16x16.png`} />
+      <link
+        rel="icon"
+        type="image/x-icon"
+        href={`${faviconFolder}/favicon.ico`}
+      />
+      <link
+        rel="icon"
+        type="image/png"
+        sizes="32x32"
+        href={`${faviconFolder}/favicon-32x32.png`}
+      />
+      <link
+        rel="icon"
+        type="image/png"
+        sizes="16x16"
+        href={`${faviconFolder}/favicon-16x16.png`}
+      />
       <link
         rel="apple-touch-icon"
         sizes="180x180"
@@ -101,13 +117,13 @@ export default function Head({
           "affiliation": {
             "@type": "Organization",
             "name": "Monash University",
-            "@id": "https://www.monash.edu/"
+            "@id": "https://www.monash.edu/",
           },
           "url": siteUrl,
           "sameAs": [
             "https://scholar.google.com.au/citations?user=f3REzuoAAAAJ&hl=en&authuser=4",
             "https://orcid.org/0000-0002-0178-3890",
-            "https://www.linkedin.com/in/jordi-manyer-fuertes/"
+            "https://www.linkedin.com/in/jordi-manyer-fuertes/",
           ],
           "alumniOf": [],
           "knowsAbout": [
@@ -115,13 +131,13 @@ export default function Head({
             "Distributed Computing",
             "Finite Element Methods",
             "Scientific Computing",
-            "High-Performance Computing"
+            "High-Performance Computing",
           ],
           "image": `${siteUrl}${image}`,
           "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": fullUrl
-          }
+            "@id": fullUrl,
+          },
         })}
       </script>
     </FreshHead>
