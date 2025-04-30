@@ -56,6 +56,10 @@ export default function Head({
       <meta name="color-scheme" content="light dark" />
       <link rel="canonical" href={fullUrl} />
       <meta name="robots" content="index, follow" />
+      <meta
+        name="google-site-verification"
+        content="CzF1Oab0SmYgl-Ti4Bij76f0CFARoecv3HsHOooYCN8"
+      />
 
       {/* Open Graph Tags */}
       <meta property="og:title" content={fullTitle} />
