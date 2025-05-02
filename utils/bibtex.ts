@@ -3,6 +3,7 @@ import { Publication } from "../islands/PublicationCard.tsx";
 interface BibTeXEntry {
   type: string;
   citationKey: string;
+  fieldsString: string;
   fields: Record<string, string>;
 }
 
@@ -13,11 +14,11 @@ function parseBibTeX(bibtex: string): BibTeXEntry[] {
 
   let match;
   while ((match = entryRegex.exec(bibtex)) !== null) {
-    const [_, type, citationKey, fieldsStr] = match;
+    const [_, type, citationKey, fieldsString] = match;
     const fields: Record<string, string> = {};
 
     let fieldMatch;
-    while ((fieldMatch = fieldRegex.exec(fieldsStr)) !== null) {
+    while ((fieldMatch = fieldRegex.exec(fieldsString)) !== null) {
       const [__, key, value] = fieldMatch;
       fields[key.toLowerCase()] = value.trim();
     }
@@ -25,6 +26,7 @@ function parseBibTeX(bibtex: string): BibTeXEntry[] {
     entries.push({
       type,
       citationKey,
+      fieldsString,
       fields,
     });
   }
@@ -40,14 +42,7 @@ function formatAuthors(authorString: string): string {
 }
 
 function generateBibTeXString(entry: BibTeXEntry): string {
-  return `@${entry.type}{${entry.citationKey},
-    title = {${entry.fields.title}},
-    author = {${entry.fields.author}},
-    journal = {${entry.fields.journal}},
-    year = {${entry.fields.year}},
-    ${entry.fields.doi ? "doi = {${entry.fields.doi}}," : ""}
-    ${entry.fields.abstract ? "abstract = {${entry.fields.abstract}}," : ""}
-  }`;
+  return `@${entry.type}{${entry.citationKey},${entry.fieldsString}}`;
 }
 
 export async function loadPublications(): Promise<Publication[]> {
@@ -56,26 +51,27 @@ export async function loadPublications(): Promise<Publication[]> {
     const entries = parseBibTeX(bibtex);
 
     return entries.map((entry) => {
+      const fields = entry.fields;
       const publication: Publication = {
         type: entry.type.toLowerCase(),
-        title: entry.fields.title,
-        authors: formatAuthors(entry.fields.author),
-        journal: entry.fields.journal,
-        year: parseInt(entry.fields.year),
+        title: fields.title,
+        authors: formatAuthors(fields.author),
+        journal: fields.journal,
+        year: parseInt(fields.year),
         bibtex: generateBibTeXString(entry),
         unpublished: entry.type.toLowerCase() === "unpublished",
       };
 
-      if (entry.fields.doi) {
-        publication.doi = entry.fields.doi;
+      if (fields.doi) {
+        publication.doi = fields.doi;
       }
 
-      if (entry.fields.abstract) {
-        publication.abstract = entry.fields.abstract;
+      if (fields.abstract) {
+        publication.abstract = fields.abstract;
       }
 
-      if (entry.fields.arxiv) {
-        publication.arxiv = entry.fields.arxiv;
+      if (fields.eprint && (fields.archiveprefix.toLowerCase() === "arxiv")) {
+        publication.arxiv = `https://arxiv.org/abs/${fields.eprint}`;
       }
 
       return publication;
