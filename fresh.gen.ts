@@ -11,6 +11,7 @@ import * as $software from "./routes/software.tsx";
 import * as $BackToTop from "./islands/BackToTop.tsx";
 import * as $MobileNav from "./islands/MobileNav.tsx";
 import * as $PublicationCard from "./islands/PublicationCard.tsx";
+import * as $SlidesCard from "./islands/SlidesCard.tsx";
 import * as $ThemeProvider from "./islands/ThemeProvider.tsx";
 import type { Manifest } from "$fresh/server.ts";
 
@@ -27,6 +28,7 @@ const manifest = {
     "./islands/BackToTop.tsx": $BackToTop,
     "./islands/MobileNav.tsx": $MobileNav,
     "./islands/PublicationCard.tsx": $PublicationCard,
+    "./islands/SlidesCard.tsx": $SlidesCard,
     "./islands/ThemeProvider.tsx": $ThemeProvider,
   },
   baseUrl: import.meta.url,

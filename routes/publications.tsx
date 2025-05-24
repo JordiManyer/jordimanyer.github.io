@@ -4,28 +4,35 @@ import Head from "../components/Head.tsx";
 import PublicationCard, {
   type Publication,
 } from "../islands/PublicationCard.tsx";
-import { loadPublications } from "../utils/bibtex.ts";
+import SlideCard, { type Slide } from "../islands/SlidesCard.tsx";
+import { loadPublications, loadSlides } from "../utils/bibtex.ts";
 
 interface Data {
   publications: Publication[];
+  slides: Slide[];
 }
 
 export const handler: Handlers<Data> = {
   async GET(_, ctx) {
     try {
-      console.log("Loading publications...");
-      const publications = await loadPublications();
-      console.log(`Loaded ${publications.length} publications`);
-      return ctx.render({ publications });
+      console.log("Loading publications and slides...");
+      const [publications, slides] = await Promise.all([
+        loadPublications(),
+        loadSlides(),
+      ]);
+      console.log(
+        `Loaded ${publications.length} publications and ${slides.length} slides`,
+      );
+      return ctx.render({ publications, slides });
     } catch (error) {
       console.error("Error in publications handler:", error);
-      return ctx.render({ publications: [] });
+      return ctx.render({ publications: [], slides: [] });
     }
   },
 };
 
 export default function Publications({ data }: PageProps<Data>) {
-  const { publications } = data;
+  const { publications, slides } = data;
 
   return (
     <>
@@ -42,7 +49,7 @@ export default function Publications({ data }: PageProps<Data>) {
           </h1>
 
           <div class="space-y-6">
-            {publications.map((publication) => (
+            {publications.map((publication) =>
               publication.unpublished
                 ? (
                   <PublicationCard
@@ -51,7 +58,7 @@ export default function Publications({ data }: PageProps<Data>) {
                   />
                 )
                 : null
-            ))}
+            )}
           </div>
 
           <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100">
@@ -59,13 +66,26 @@ export default function Publications({ data }: PageProps<Data>) {
           </h1>
 
           <div class="space-y-6">
-            {publications.map((publication) => (
+            {publications.map((publication) =>
               publication.unpublished ? null : (
                 <PublicationCard
                   key={publication.title}
                   publication={publication}
                 />
               )
+            )}
+          </div>
+
+          <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100">
+            Slides
+          </h1>
+
+          <div class="space-y-6">
+            {slides.map((slide) => (
+              <SlideCard
+                key={slide.title}
+                slide={slide}
+              />
             ))}
           </div>
         </div>

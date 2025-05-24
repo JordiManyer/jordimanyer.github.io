@@ -1,4 +1,5 @@
 import { Publication } from "../islands/PublicationCard.tsx";
+import { Slide } from "../islands/SlidesCard.tsx";
 
 interface BibTeXEntry {
   type: string;
@@ -78,6 +79,31 @@ export async function loadPublications(): Promise<Publication[]> {
     }).sort((a, b) => b.year - a.year); // Sort by year, newest first
   } catch (error) {
     console.error("Error loading publications:", error);
+    return [];
+  }
+}
+
+export async function loadSlides(): Promise<Slide[]> {
+  try {
+    const bibtex = await Deno.readTextFile("static/presentations.bib");
+    const entries = parseBibTeX(bibtex);
+
+    return entries.map((entry) => {
+      const fields = entry.fields;
+      const slide: Slide = {
+        type: entry.type.toLowerCase(),
+        title: fields.title,
+        authors: formatAuthors(fields.author),
+        conference: fields.booktitle,
+        year: parseInt(fields.year),
+        place: fields.address,
+        pdfpath: fields.pdfpath,
+        note: fields.note,
+      };
+      return slide;
+    }).sort((a, b) => b.year - a.year); // Sort by year, newest first
+  } catch (error) {
+    console.error("Error loading slides:", error);
     return [];
   }
 }
