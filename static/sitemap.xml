@@ -17,7 +17,7 @@
   </url>
   <url>
     <loc>https://jordimanyer.deno.dev/blog</loc>
-    <changefreq>weekly</changefreq>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 </urlset>
