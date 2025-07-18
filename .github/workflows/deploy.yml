@@ -33,6 +33,8 @@ jobs:
           rm -rf jordi-manyer-cv.pdf
           cp publications.bib/publications.bib static/publications.bib
           rm -rf publications.bib
+          cp workshops.bib/workshops.bib static/workshops.bib
+          rm -rf workshops.bib
 
       - name: Setup Deno
         uses: denoland/setup-deno@v1
