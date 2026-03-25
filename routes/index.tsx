@@ -25,7 +25,7 @@ export default function About() {
                 Jordi Manyer
               </h1>
               <p class="text-xl text-gray-600 dark:text-gray-300">
-                PhD Student in Computational Mathematics
+                Researcher in Computational Mathematics
               </p>
               <p class="text-lg text-gray-600 dark:text-gray-300">
                 School of Mathematics, Monash University
@@ -50,7 +50,7 @@ export default function About() {
               Current research interests include:
               <ul class="list-disc list-inside text-gray-700 dark:text-gray-300">
                 <li>Robust and scalable solvers for multiphysics problems.</li>
-                <li>Non-conforming hybrid polytopal methods.</li>
+                <li>Solvers for non-conforming hybrid polytopal methods.</li>
               </ul>
             </p>
           </section>
