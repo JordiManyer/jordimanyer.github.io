@@ -33,8 +33,7 @@ export default function Software() {
     },
     {
       title: "GeoGmsh.jl",
-      description:
-        "Generate Gmsh meshes from geospatial data.",
+      description: "Generate Gmsh meshes from geospatial data.",
       link: "https://github.com/JordiManyer/GeoGmsh.jl",
       role: "Creator, maintainer and main contributor",
     },
