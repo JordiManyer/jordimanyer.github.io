@@ -1,4 +1,4 @@
-name: Deploy Website
+name: Deploy Website (Legacy)
 
 on:
   push:
@@ -37,7 +37,7 @@ jobs:
           rm -rf workshops.bib
 
       - name: Setup Deno
-        uses: denoland/setup-deno@v2
+        uses: denoland/setup-deno@v1
         with:
           deno-version: v2.x
 
@@ -51,4 +51,7 @@ jobs:
         run: deno task build
 
       - name: Deploy to DenoDeploy
-        run: deno deploy --org=jmanyer --app=jordimanyer --prod
+        uses: denoland/deployctl@v1
+        with:
+          project: jordimanyer
+          entrypoint: main.ts
