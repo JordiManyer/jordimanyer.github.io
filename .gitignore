@@ -11,5 +11,6 @@ _fresh/
 node_modules/
 
 # Auto-generated static files
-static/jordimanyercv.pdf
+static/jordi-manyer-cv.pdf
 static/publications.bib
+static/workshops.bib

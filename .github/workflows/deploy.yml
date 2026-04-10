@@ -51,6 +51,11 @@ jobs:
         run: deno task build
 
       - name: Deploy to DenoDeploy
-        run: deno deploy --org=jmanyer --app=jordimanyer --prod
+        run: |
+          sed -i '/_fresh\//d' .gitignore
+          sed -i '/static\/jordi-manyer-cv.pdf/d' .gitignore
+          sed -i '/static\/publications.bib/d' .gitignore
+          sed -i '/static\/workshops.bib/d' .gitignore
+          deno deploy --org=jmanyer --app=jordimanyer --prod
         env:
           DENO_DEPLOY_TOKEN: ${{ secrets.DENO_DEPLOY_TOKEN }}
