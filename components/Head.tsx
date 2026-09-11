@@ -11,7 +11,7 @@ interface HeadProps {
 export default function Head({
   title = "Jordi Manyer",
   description = "Jordi Manyer's personal website.",
-  image = "/profile.jpg",
+  image = "https://github.com/JordiManyer.png",
   type = "website",
   path = "",
 }: HeadProps) {
@@ -64,7 +64,7 @@ export default function Head({
       {/* Open Graph Tags */}
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
-      <meta property="og:image" content={`${siteUrl}${image}`} />
+      <meta property="og:image" content={image} />
       <meta property="og:url" content={fullUrl} />
       <meta property="og:type" content={type} />
       <meta property="og:site_name" content="Jordi Manyer" />
@@ -74,7 +74,7 @@ export default function Head({
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={`${siteUrl}${image}`} />
+      <meta name="twitter:image" content={image} />
 
       {/* Academic Profile Tags */}
       <meta name="citation_author" content="Jordi Manyer" />
@@ -137,7 +137,7 @@ export default function Head({
             "Scientific Computing",
             "High-Performance Computing",
           ],
-          "image": `${siteUrl}${image}`,
+          "image": image,
           "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": fullUrl,
