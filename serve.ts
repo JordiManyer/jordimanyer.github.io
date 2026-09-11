@@ -5,4 +5,4 @@
 // before `deno check`).
 import server from "./_fresh/server.js";
 
-Deno.serve(server.fetch);
+Deno.serve((req) => server.fetch(req));
