@@ -73,6 +73,9 @@ export async function loadPublications(): Promise<Publication[]> {
 
       if (fields.eprint && (fields.archiveprefix.toLowerCase() === "arxiv")) {
         publication.arxiv = `https://arxiv.org/abs/${fields.eprint}`;
+      } else if (fields.url) {
+        // Non-arXiv preprint (e.g. HAL): link to the URL given in the entry.
+        publication.preprint = fields.url;
       }
 
       return publication;

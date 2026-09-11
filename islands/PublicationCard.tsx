@@ -10,6 +10,7 @@ export interface Publication {
   abstract?: string;
   bibtex?: string;
   arxiv?: string;
+  preprint?: string;
   unpublished: boolean;
 }
 
@@ -68,6 +69,19 @@ export default function PublicationCard(
               rel="noopener noreferrer"
             >
               ArXiv
+            </a>
+          </>
+        )}
+        {publication.preprint && (
+          <>
+            <span>•</span>
+            <a
+              href={publication.preprint}
+              class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 hover:underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Preprint
             </a>
           </>
         )}
