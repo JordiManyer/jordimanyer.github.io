@@ -1,9 +1,6 @@
-import { App, staticFiles } from "fresh";
-import { type State } from "./utils.ts";
+// Production entrypoint (Deno Deploy runs `main.ts`). The Vite build turns
+// app.ts into _fresh/server.js, which only exports `{ fetch }`; this file
+// starts the HTTP server around it. Run `deno task build` first.
+import server from "./_fresh/server.js";
 
-export const app = new App<State>();
-
-app.use(staticFiles());
-
-// File-system based routes (routes/), including routes/_middleware.ts.
-app.fsRoutes();
+Deno.serve((req) => server.fetch(req));

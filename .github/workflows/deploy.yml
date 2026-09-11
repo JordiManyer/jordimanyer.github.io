@@ -61,29 +61,9 @@ jobs:
           sed -i '/static\/workshops.bib/d' .gitignore
           # Invoke the deploy CLI directly: the `deno deploy` wrapper built into
           # Deno 2.9.x forwards every flag twice, which the CLI rejects.
-          # --no-config keeps the CLI's own npm deps out of this project's
-          # manual node_modules setup.
+          # --no-config stops the CLI from resolving against this project's
+          # import map and node_modules.
           deno run -A --no-config jsr:@deno/deploy --org=jmanyer --app=jordimanyer --non-interactive \
             ${{ github.ref == 'refs/heads/master' && '--prod' || '' }}
-        env:
-          DENO_DEPLOY_TOKEN: ${{ secrets.DENO_DEPLOY_TOKEN }}
-
-      - name: Show recent revisions (diagnostics)
-        if: failure()
-        run: |
-          deno run -A --no-config jsr:@deno/deploy deployments list \
-            --org=jmanyer --app=jordimanyer --json --non-interactive | head -c 1500
-          echo; echo "=== app config"
-          deno run -A --no-config jsr:@deno/deploy apps get \
-            --org=jmanyer --app=jordimanyer --json --non-interactive | head -c 3000
-          echo; echo "=== logs of failed revisions"
-          deno run -A --no-config jsr:@deno/deploy logs \
-            --org=jmanyer --app=jordimanyer --once --json --non-interactive \
-            | python3 -c 'import sys,json
-          for line in sys.stdin:
-              try: d=json.loads(line)
-              except Exception: continue
-              if d.get("revision")=="cmxn38ts94dq" or d.get("scope")=="deno::util::progress_bar": continue
-              print(d.get("timestamp","")[11:19], d.get("revision"), d.get("severity"), d.get("body","").strip()[:400])' | tail -n 80
         env:
           DENO_DEPLOY_TOKEN: ${{ secrets.DENO_DEPLOY_TOKEN }}
