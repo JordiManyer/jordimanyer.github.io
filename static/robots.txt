@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://jordimanyer.github.io/sitemap.xml 
+Sitemap: https://manyer.dev/sitemap.xml

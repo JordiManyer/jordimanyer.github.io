@@ -15,7 +15,7 @@ export default function Head({
   type = "website",
   path = "",
 }: HeadProps) {
-  const siteUrl = "https://jordimanyer.deno.dev";
+  const siteUrl = "https://manyer.dev";
   const fullUrl = `${siteUrl}${path}`;
   const fullTitle = title === "Jordi Manyer"
     ? title
