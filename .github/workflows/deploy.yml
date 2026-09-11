@@ -60,7 +60,9 @@ jobs:
           sed -i '/static\/workshops.bib/d' .gitignore
           # Invoke the deploy CLI directly: the `deno deploy` wrapper built into
           # Deno 2.9.x forwards every flag twice, which the CLI rejects.
-          deno run -A jsr:@deno/deploy --org=jmanyer --app=jordimanyer --non-interactive \
+          # --no-config keeps the CLI's own npm deps out of this project's
+          # manual node_modules setup.
+          deno run -A --no-config jsr:@deno/deploy --org=jmanyer --app=jordimanyer --non-interactive \
             ${{ github.ref == 'refs/heads/master' && '--prod' || '' }}
         env:
           DENO_DEPLOY_TOKEN: ${{ secrets.DENO_DEPLOY_TOKEN }}
