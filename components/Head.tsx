@@ -1,4 +1,4 @@
-import { Head as FreshHead } from "$fresh/runtime.ts";
+import { Head as FreshHead } from "fresh/runtime";
 
 interface HeadProps {
   title?: string;

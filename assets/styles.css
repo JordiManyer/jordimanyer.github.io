@@ -1,0 +1,17 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/* Dark mode is toggled by adding the `dark` class to <html> (see ThemeProvider). */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Typography tweaks previously set in tailwind.config.ts. */
+.prose {
+  max-width: 100%;
+  color: inherit;
+}
+.prose a {
+  color: inherit;
+}
+.prose a:hover {
+  color: #3b82f6;
+}

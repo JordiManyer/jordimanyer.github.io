@@ -1,4 +1,5 @@
-import { Handlers, PageProps } from "$fresh/server.ts";
+import { page } from "fresh";
+import { define } from "../utils.ts";
 import Layout from "../components/Layout.tsx";
 import Head from "../components/Head.tsx";
 import PublicationCard, {
@@ -7,13 +8,8 @@ import PublicationCard, {
 import SlideCard, { type Slide } from "../islands/SlidesCard.tsx";
 import { loadPublications, loadSlides } from "../utils/bibtex.ts";
 
-interface Data {
-  publications: Publication[];
-  slides: Slide[];
-}
-
-export const handler: Handlers<Data> = {
-  async GET(_, ctx) {
+export const handler = define.handlers({
+  async GET(_ctx) {
     try {
       console.log("Loading publications and slides...");
       const [publications, slides] = await Promise.all([
@@ -23,15 +19,18 @@ export const handler: Handlers<Data> = {
       console.log(
         `Loaded ${publications.length} publications and ${slides.length} slides`,
       );
-      return ctx.render({ publications, slides });
+      return page({ publications, slides });
     } catch (error) {
       console.error("Error in publications handler:", error);
-      return ctx.render({ publications: [], slides: [] });
+      return page({
+        publications: [] as Publication[],
+        slides: [] as Slide[],
+      });
     }
   },
-};
+});
 
-export default function Publications({ data }: PageProps<Data>) {
+export default define.page<typeof handler>(function Publications({ data }) {
   const { publications, slides } = data;
 
   return (
@@ -92,4 +91,4 @@ export default function Publications({ data }: PageProps<Data>) {
       </Layout>
     </>
   );
-}
+});

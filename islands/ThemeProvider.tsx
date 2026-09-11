@@ -1,5 +1,5 @@
 import { useEffect, useState } from "preact/hooks";
-import { IS_BROWSER } from "$fresh/runtime.ts";
+import { IS_BROWSER } from "fresh/runtime";
 
 export default function ThemeProvider() {
   const [theme, setTheme] = useState("light");

@@ -2,7 +2,6 @@ name: Deploy Website
 
 on:
   push:
-    branches: [master]
   pull_request:
     branches: [master]
 
@@ -41,16 +40,19 @@ jobs:
         with:
           deno-version: v2.x
 
-      - name: Verify formatting
-        run: deno fmt --check
+      - name: Install dependencies
+        run: deno install
 
-      - name: Run linter
-        run: deno lint
+      - name: Check formatting, lint and types
+        run: deno task check
 
       - name: Build website
         run: deno task build
 
+      # Pushes to master go to production; pushes to other branches get a
+      # preview URL. Pull requests only build.
       - name: Deploy to DenoDeploy
+        if: github.event_name == 'push'
         run: |
           sed -i '/_fresh\//d' .gitignore
           sed -i '/static\/jordi-manyer-cv.pdf/d' .gitignore
@@ -58,6 +60,7 @@ jobs:
           sed -i '/static\/workshops.bib/d' .gitignore
           # Invoke the deploy CLI directly: the `deno deploy` wrapper built into
           # Deno 2.9.x forwards every flag twice, which the CLI rejects.
-          deno run -A jsr:@deno/deploy --org=jmanyer --app=jordimanyer --prod --non-interactive
+          deno run -A jsr:@deno/deploy --org=jmanyer --app=jordimanyer --non-interactive \
+            ${{ github.ref == 'refs/heads/master' && '--prod' || '' }}
         env:
           DENO_DEPLOY_TOKEN: ${{ secrets.DENO_DEPLOY_TOKEN }}
