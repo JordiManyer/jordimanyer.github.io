@@ -1,5 +1,12 @@
 {
   "nodeModulesDir": "auto",
+  "deploy": {
+    "build": "deno task build",
+    "runtime": {
+      "mode": "dynamic",
+      "entrypoint": "_fresh/server.js"
+    }
+  },
   "tasks": {
     "check": "deno fmt --check . && deno lint . && deno check",
     "dev": "vite",
@@ -7,8 +14,17 @@
     "start": "deno serve -A _fresh/server.js",
     "update": "deno run -A -r jsr:@fresh/update ."
   },
-  "lint": { "rules": { "tags": ["fresh", "recommended"] } },
-  "exclude": ["**/_fresh/*"],
+  "lint": {
+    "rules": {
+      "tags": [
+        "fresh",
+        "recommended"
+      ]
+    }
+  },
+  "exclude": [
+    "**/_fresh/*"
+  ],
   "imports": {
     "fresh": "jsr:@fresh/core@^2.3.3",
     "preact": "npm:preact@^10.29.1",
@@ -21,7 +37,12 @@
     "@tailwindcss/typography": "npm:@tailwindcss/typography@^0.5.20"
   },
   "compilerOptions": {
-    "lib": ["dom", "dom.asynciterable", "dom.iterable", "deno.ns"],
+    "lib": [
+      "dom",
+      "dom.asynciterable",
+      "dom.iterable",
+      "deno.ns"
+    ],
     "jsx": "precompile",
     "jsxImportSource": "preact",
     "jsxPrecompileSkipElements": [
@@ -40,6 +61,8 @@
       "noscript",
       "template"
     ],
-    "types": ["vite/client"]
+    "types": [
+      "vite/client"
+    ]
   }
 }
