@@ -3,11 +3,7 @@
   "deploy": {
     "org": "jmanyer",
     "app": "jordimanyer",
-    "build": "deno task build",
-    "runtime": {
-      "mode": "dynamic",
-      "entrypoint": "serve.ts"
-    }
+    "framework": "fresh"
   },
   "tasks": {
     "check": "deno fmt --check . && deno lint . && deno check",
