@@ -57,7 +57,7 @@ export default function Head({
       <meta name="robots" content="index, follow" />
       <meta
         name="google-site-verification"
-        content="CzF1Oab0SmYgl-Ti4Bij76f0CFARoecv3HsHOooYCN8"
+        content="NQstbaEPF3-v025GgZ8i36Qa2tQlSv2sskSQ4Y7scWA"
       />
 
       {/* Open Graph Tags */}
