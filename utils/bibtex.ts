@@ -57,7 +57,7 @@ export async function loadPublications(): Promise<Publication[]> {
         type: entry.type.toLowerCase(),
         title: fields.title,
         authors: formatAuthors(fields.author),
-        journal: fields.journal,
+        journal: fields.journal ?? fields.booktitle,
         year: parseInt(fields.year),
         bibtex: generateBibTeXString(entry),
         unpublished: entry.type.toLowerCase() === "unpublished",
