@@ -6,14 +6,14 @@
     "build": "deno task build",
     "runtime": {
       "mode": "dynamic",
-      "entrypoint": "_fresh/server.js"
+      "entrypoint": "serve.ts"
     }
   },
   "tasks": {
     "check": "deno fmt --check . && deno lint . && deno check",
     "dev": "vite",
     "build": "vite build",
-    "start": "deno serve -A _fresh/server.js",
+    "start": "deno run -A serve.ts",
     "update": "deno run -A -r jsr:@fresh/update ."
   },
   "lint": {
