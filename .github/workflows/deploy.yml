@@ -66,3 +66,11 @@ jobs:
             ${{ github.ref == 'refs/heads/master' && '--prod' || '' }}
         env:
           DENO_DEPLOY_TOKEN: ${{ secrets.DENO_DEPLOY_TOKEN }}
+
+      - name: Show recent revisions (diagnostics)
+        if: failure()
+        run: |
+          deno run -A --no-config jsr:@deno/deploy deployments list \
+            --org=jmanyer --app=jordimanyer --json --non-interactive | head -c 6000
+        env:
+          DENO_DEPLOY_TOKEN: ${{ secrets.DENO_DEPLOY_TOKEN }}
