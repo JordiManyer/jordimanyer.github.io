@@ -38,7 +38,6 @@ export default function Head({
       <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
 
       {/* Basic Meta Tags */}
-      <html lang="en" /> {/* Language declaration */}
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
       <meta name="author" content="Jordi Manyer" />
@@ -109,41 +108,45 @@ export default function Head({
       />
 
       {/* Schema.org for Google Scholar and Rich Results */}
-      <script type="application/ld+json">
-        {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Person",
-          "name": "Jordi Manyer",
-          "givenName": "Jordi",
-          "familyName": "Manyer",
-          "email": "jordi.manyer@monash.edu",
-          "jobTitle": "Computational Mathematics Researcher",
-          "affiliation": {
-            "@type": "Organization",
-            "name": "Monash University",
-            "@id": "https://www.monash.edu/",
-          },
-          "url": siteUrl,
-          "sameAs": [
-            "https://scholar.google.com.au/citations?user=f3REzuoAAAAJ&hl=en&authuser=4",
-            "https://orcid.org/0000-0002-0178-3890",
-            "https://www.linkedin.com/in/jordi-manyer-fuertes/",
-          ],
-          "alumniOf": [],
-          "knowsAbout": [
-            "Computational Mathematics",
-            "Distributed Computing",
-            "Finite Element Methods",
-            "Scientific Computing",
-            "High-Performance Computing",
-          ],
-          "image": image,
-          "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": fullUrl,
-          },
-        })}
-      </script>
+      <script
+        type="application/ld+json"
+        // deno-lint-ignore react-no-danger
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Jordi Manyer",
+            "givenName": "Jordi",
+            "familyName": "Manyer",
+            "email": "jordi.manyer@monash.edu",
+            "jobTitle": "Computational Mathematics Researcher",
+            "affiliation": {
+              "@type": "Organization",
+              "name": "Monash University",
+              "@id": "https://www.monash.edu/",
+            },
+            "url": siteUrl,
+            "sameAs": [
+              "https://scholar.google.com.au/citations?user=f3REzuoAAAAJ&hl=en&authuser=4",
+              "https://orcid.org/0000-0002-0178-3890",
+              "https://www.linkedin.com/in/jordi-manyer-fuertes/",
+            ],
+            "alumniOf": [],
+            "knowsAbout": [
+              "Computational Mathematics",
+              "Distributed Computing",
+              "Finite Element Methods",
+              "Scientific Computing",
+              "High-Performance Computing",
+            ],
+            "image": image,
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": fullUrl,
+            },
+          }),
+        }}
+      />
     </FreshHead>
   );
 }
