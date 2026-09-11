@@ -1,6 +1,8 @@
 {
   "nodeModulesDir": "auto",
   "deploy": {
+    "org": "jmanyer",
+    "app": "jordimanyer",
     "build": "deno task build",
     "runtime": {
       "mode": "dynamic",
