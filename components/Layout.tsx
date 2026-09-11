@@ -2,7 +2,6 @@ import { ComponentChildren } from "preact";
 import ThemeProvider from "../islands/ThemeProvider.tsx";
 import MobileNav from "../islands/MobileNav.tsx";
 import BackToTop from "../islands/BackToTop.tsx";
-import Head from "./Head.tsx";
 
 interface LayoutProps {
   children: ComponentChildren;
@@ -19,7 +18,6 @@ export default function Layout({ children, active }: LayoutProps) {
 
   return (
     <>
-      <Head />
       <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
         <div class="max-w-4xl mx-auto px-4 py-8">
           <header class="mb-8">
