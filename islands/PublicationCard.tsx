@@ -41,7 +41,10 @@ export default function PublicationCard(
         {publication.authors}
       </p>
       <div class="flex flex-wrap items-center gap-2 text-gray-500 dark:text-gray-400 text-sm mb-4">
-        <span>{publication.journal} ({publication.year})</span>
+        <span>
+          {publication.unpublished ? "Preprint" : publication.journal}{" "}
+          ({publication.year})
+        </span>
         {publication.doi && (
           <>
             <span>•</span>
