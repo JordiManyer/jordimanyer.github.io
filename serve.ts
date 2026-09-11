@@ -1,8 +1,8 @@
 // Production entrypoint for Deno Deploy. The Vite build emits _fresh/server.js,
 // which only exports `{ fetch }` (meant for `deno serve`); this file starts the
 // server explicitly so it also works when the platform runs `deno run`.
-// The build output is imported by a computed path so `deno check` passes
-// before the build has run.
-const built = new URL("./_fresh/server.js", import.meta.url).href;
-const { default: server } = await import(built);
+// The import is static so dependency caching can follow it (run the build
+// before `deno check`).
+import server from "./_fresh/server.js";
+
 Deno.serve(server.fetch);

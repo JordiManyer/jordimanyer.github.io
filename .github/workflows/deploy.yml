@@ -43,11 +43,12 @@ jobs:
       - name: Install dependencies
         run: deno install
 
-      - name: Check formatting, lint and types
-        run: deno task check
-
       - name: Build website
         run: deno task build
+
+      # After the build so that serve.ts can resolve _fresh/server.js.
+      - name: Check formatting, lint and types
+        run: deno task check
 
       # Pushes to master go to production; pushes to other branches get a
       # preview URL. Pull requests only build.
