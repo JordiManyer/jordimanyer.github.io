@@ -5,8 +5,6 @@
   "assets": {
     "directory": "./dist",
     "not_found_handling": "404-page"
-  }
-  // Once the old CNAME record for manyer.dev is deleted, uncomment this (and
-  // add a comma above) to attach the domain on deploy:
-  // "routes": [{ "pattern": "manyer.dev", "custom_domain": true }]
+  },
+  "routes": [{ "pattern": "manyer.dev", "custom_domain": true }]
 }
