@@ -47,6 +47,9 @@ function generateBibTeXString(entry: BibTeXEntry): string {
   return `@${entry.type}{${entry.citationKey},${entry.fieldsString}}`;
 }
 
+// Entries are listed newest first: by year, and within a year in reverse file
+// order, so an entry appended to a .bib file shows above the older ones.
+//
 // A missing or unreadable .bib file throws, so that the build fails rather than
 // publishing an empty page.
 export async function loadPublications(): Promise<Publication[]> {
@@ -59,7 +62,10 @@ export async function loadPublications(): Promise<Publication[]> {
       type: entry.type.toLowerCase(),
       title: fields.title,
       authors: formatAuthors(fields.author),
-      journal: fields.journal ?? fields.booktitle,
+      // The short forms are optional and only used here; the CV prints the
+      // full venue name.
+      journal: fields.shortjournal ?? fields.shortbooktitle ??
+        fields.journal ?? fields.booktitle,
       year: parseInt(fields.year),
       bibtex: generateBibTeXString(entry),
       unpublished: entry.type.toLowerCase() === "unpublished",
@@ -81,7 +87,7 @@ export async function loadPublications(): Promise<Publication[]> {
     }
 
     return publication;
-  }).sort((a, b) => b.year - a.year); // Sort by year, newest first
+  }).reverse().sort((a, b) => b.year - a.year);
 }
 
 export async function loadSlides(): Promise<Slide[]> {
@@ -101,5 +107,5 @@ export async function loadSlides(): Promise<Slide[]> {
       note: fields.note,
     };
     return slide;
-  }).sort((a, b) => b.year - a.year); // Sort by year, newest first
+  }).reverse().sort((a, b) => b.year - a.year);
 }

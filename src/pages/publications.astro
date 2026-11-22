@@ -25,7 +25,7 @@ const published = publications.filter((p) => !p.unpublished);
       Preprints
     </h1>
 
-    <div class="flex flex-col gap-6">
+    <div class="flex flex-col gap-2">
       {preprints.map((publication) => (
         <PublicationCard client:visible publication={publication} />
       ))}
@@ -35,7 +35,7 @@ const published = publications.filter((p) => !p.unpublished);
       Publications
     </h1>
 
-    <div class="flex flex-col gap-6">
+    <div class="flex flex-col gap-2">
       {published.map((publication) => (
         <PublicationCard client:visible publication={publication} />
       ))}
@@ -45,7 +45,7 @@ const published = publications.filter((p) => !p.unpublished);
       Slides
     </h1>
 
-    <div class="flex flex-col gap-6">
+    <div class="flex flex-col gap-2">
       {slides.map((slide) => <SlideCard slide={slide} />)}
     </div>
   </div>

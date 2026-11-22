@@ -34,14 +34,14 @@ export default function PublicationCard(
   };
 
   return (
-    <div class="p-6 bg-gray-50 dark:bg-gray-800 rounded-lg">
-      <h2 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2">
+    <div class="px-4 py-2 bg-gray-50 dark:bg-gray-800 rounded-lg">
+      <h2 class="font-semibold text-gray-900 dark:text-gray-100">
         {publication.title}
       </h2>
-      <p class="text-gray-600 dark:text-gray-300 mb-2">
+      <p class="text-gray-600 dark:text-gray-300">
         {publication.authors}
       </p>
-      <div class="flex flex-wrap items-center gap-2 text-gray-500 dark:text-gray-400 text-sm mb-4">
+      <div class="flex flex-wrap items-center gap-2 text-gray-500 dark:text-gray-400 text-sm">
         <span>
           {publication.unpublished ? "Preprint" : publication.journal}{" "}
           ({publication.year})
@@ -99,7 +99,7 @@ export default function PublicationCard(
         )}
       </div>
       {publication.abstract && (
-        <div class="prose dark:prose-invert max-w-none">
+        <div class="prose dark:prose-invert max-w-none mt-2">
           <p class="text-gray-600 dark:text-gray-300">
             {publication.abstract}
           </p>
