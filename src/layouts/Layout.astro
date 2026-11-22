@@ -1,0 +1,256 @@
+---
+import "../styles/global.css";
+import ThemeProvider from "../components/ThemeProvider.tsx";
+import MobileNav from "../components/MobileNav.tsx";
+import BackToTop from "../components/BackToTop.tsx";
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  type?: string;
+  /** Path of the page; also selects the highlighted nav link. */
+  path?: string;
+  robots?: string;
+}
+
+const {
+  title = "Jordi Manyer",
+  description = "Jordi Manyer's personal website.",
+  image = "https://github.com/JordiManyer.png",
+  type = "website",
+  path = "",
+  robots = "index, follow",
+} = Astro.props;
+
+const siteUrl = "https://manyer.dev";
+const fullUrl = `${siteUrl}${path}`;
+const fullTitle = title === "Jordi Manyer" ? title : `${title} | Jordi Manyer`;
+const faviconFolder = "/favicon_Skranji_J";
+
+const links = [
+  { href: "/", text: "About" },
+  { href: "/software", text: "Software" },
+  { href: "/publications", text: "Publications" },
+  /* { href: "/blog", text: "Blog" }, */
+];
+
+// Schema.org for Google Scholar and Rich Results
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Jordi Manyer",
+  "givenName": "Jordi",
+  "familyName": "Manyer",
+  "email": "jordi.manyer@monash.edu",
+  "jobTitle": "Computational Mathematics Researcher",
+  "affiliation": {
+    "@type": "Organization",
+    "name": "Monash University",
+    "@id": "https://www.monash.edu/",
+  },
+  "url": siteUrl,
+  "sameAs": [
+    "https://scholar.google.com.au/citations?user=f3REzuoAAAAJ&hl=en&authuser=4",
+    "https://orcid.org/0000-0002-0178-3890",
+    "https://www.linkedin.com/in/jordi-manyer-fuertes/",
+  ],
+  "alumniOf": [],
+  "knowsAbout": [
+    "Computational Mathematics",
+    "Distributed Computing",
+    "Finite Element Methods",
+    "Scientific Computing",
+    "High-Performance Computing",
+  ],
+  "image": image,
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": fullUrl,
+  },
+};
+
+const githubIcon =
+  "M12 2C6.477 2 2 6.477 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0012 2z";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Theme script: runs before first paint to prevent a flash -->
+    <script is:inline>
+      const theme = localStorage.getItem("theme") ||
+        (window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light");
+      if (theme === "dark") document.documentElement.classList.add("dark");
+    </script>
+
+    <!-- Basic Meta Tags -->
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content="Jordi Manyer" />
+    <meta
+      name="theme-color"
+      content="#ffffff"
+      media="(prefers-color-scheme: light)"
+    />
+    <meta
+      name="theme-color"
+      content="#111827"
+      media="(prefers-color-scheme: dark)"
+    />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="canonical" href={fullUrl} />
+    <meta name="robots" content={robots} />
+    <meta
+      name="google-site-verification"
+      content="NQstbaEPF3-v025GgZ8i36Qa2tQlSv2sskSQ4Y7scWA"
+    />
+
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+    <meta property="og:url" content={fullUrl} />
+    <meta property="og:type" content={type} />
+    <meta property="og:site_name" content="Jordi Manyer" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
+
+    <!-- Academic Profile Tags -->
+    <meta name="citation_author" content="Jordi Manyer" />
+    <meta name="citation_author_institution" content="Monash University" />
+    <meta
+      name="keywords"
+      content="computational mathematics, distributed computing, finite element methods, scientific computing, high-performance computing, Jordi Manyer, Monash University"
+    />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href={`${faviconFolder}/favicon.ico`} />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href={`${faviconFolder}/favicon-32x32.png`}
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href={`${faviconFolder}/favicon-16x16.png`}
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href={`${faviconFolder}/apple-touch-icon.png`}
+    />
+
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  </head>
+  <body>
+    <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
+      <div class="max-w-4xl mx-auto px-4 py-8">
+        <header class="mb-8">
+          <nav class="hidden md:flex items-center justify-between">
+            <div class="flex items-center space-x-8">
+              {
+                links.map((link) => (
+                  <a
+                    href={link.href}
+                    class:list={[
+                      "text-sm font-medium transition-colors",
+                      path === link.href
+                        ? "text-gray-900 dark:text-gray-100"
+                        : "text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100",
+                    ]}
+                  >
+                    {link.text}
+                  </a>
+                ))
+              }
+            </div>
+            <div class="flex items-center space-x-4">
+              <a
+                href="/jordi-manyer-cv.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+              >
+                CV
+              </a>
+              <a
+                href="https://github.com/jordimanyer"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors"
+                aria-label="GitHub Profile"
+              >
+                <svg
+                  class="w-5 h-5 text-gray-600 dark:text-gray-400"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path fill-rule="evenodd" clip-rule="evenodd" d={githubIcon}
+                  ></path>
+                </svg>
+              </a>
+              <ThemeProvider client:only="preact" />
+            </div>
+          </nav>
+          <div class="md:hidden flex items-center justify-between">
+            <MobileNav client:load links={links} active={path} />
+            <div class="flex items-center space-x-4">
+              <a
+                href="/jordi-manyer-cv.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+              >
+                CV
+              </a>
+              <a
+                href="https://github.com/jordimanyer"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors"
+                aria-label="GitHub Profile"
+              >
+                <svg
+                  class="w-5 h-5 text-gray-600 dark:text-gray-400"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path fill-rule="evenodd" clip-rule="evenodd" d={githubIcon}
+                  ></path>
+                </svg>
+              </a>
+              <ThemeProvider client:only="preact" />
+            </div>
+          </div>
+        </header>
+
+        <main>
+          <slot />
+        </main>
+
+        <footer
+          class="mt-16 py-8 border-t border-gray-200 dark:border-gray-800"
+        >
+          <div class="text-center text-sm text-gray-500 dark:text-gray-400">
+            © {new Date().getFullYear()} Jordi Manyer. All rights reserved.
+          </div>
+        </footer>
+      </div>
+      <BackToTop client:idle />
+    </div>
+  </body>
+</html>

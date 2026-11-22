@@ -1,6 +1,5 @@
 import { useEffect, useRef } from "preact/hooks";
 import { useSignal } from "@preact/signals";
-import { IS_BROWSER } from "fresh/runtime";
 
 export default function BackToTop() {
   const isVisible = useSignal(false);
@@ -19,15 +18,11 @@ export default function BackToTop() {
   };
 
   useEffect(() => {
-    if (!IS_BROWSER) return;
-
     globalThis.addEventListener("scroll", handleScroll, { passive: true });
     return () => globalThis.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollToTop = () => {
-    if (!IS_BROWSER) return;
-
     globalThis.scrollTo({
       top: 0,
       behavior: "smooth",

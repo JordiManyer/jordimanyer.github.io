@@ -4,6 +4,13 @@
 /* Dark mode is toggled by adding the `dark` class to <html> (see ThemeProvider). */
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* Keep the system font stack the site has always used. */
+@theme {
+  --font-sans:
+    ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
+}
+
 /* Typography tweaks previously set in tailwind.config.ts. */
 .prose {
   max-width: 100%;

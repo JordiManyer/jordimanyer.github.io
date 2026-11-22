@@ -5,12 +5,14 @@
 .env.production.local
 .env.local
 
-# Fresh build directory
-_fresh/
+# Build output and tool caches
+dist/
+.astro/
+.wrangler/
 # npm dependencies
 node_modules/
 
 # Auto-generated static files
-static/jordi-manyer-cv.pdf
-static/publications.bib
-static/workshops.bib
+public/jordi-manyer-cv.pdf
+public/publications.bib
+public/workshops.bib

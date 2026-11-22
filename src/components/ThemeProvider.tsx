@@ -1,6 +1,6 @@
 import { useEffect, useState } from "preact/hooks";
-import { IS_BROWSER } from "fresh/runtime";
 
+// Rendered with `client:only`: the initial theme is only known in the browser.
 export default function ThemeProvider() {
   const [theme, setTheme] = useState("light");
 
@@ -25,8 +25,6 @@ export default function ThemeProvider() {
     localStorage.setItem("theme", newTheme);
     document.documentElement.classList.toggle("dark");
   };
-
-  if (!IS_BROWSER) return null;
 
   return (
     <button

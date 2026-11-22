@@ -1,13 +1,17 @@
 # manyer.dev
 
-This is the source code for my personal website. Built with Deno's
-[Fresh](https://fresh.deno.dev) framework (v2, Vite) and hosted on Deno Deploy.
+This is the source code for my personal website. Built with
+[Astro](https://astro.build) as a static site and hosted on Cloudflare Workers.
 
 ## Development
 
 ```sh
-deno install     # fetch dependencies
-deno task dev    # dev server with hot reload
-deno task build  # production build into _fresh/
-deno task start  # serve the production build (main.ts)
+npm install      # fetch dependencies
+npm run dev      # dev server with hot reload
+npm run build    # production build into dist/
+npm run preview  # serve the production build
+npm run check    # type-check
 ```
+
+The publications page is generated from `public/publications.bib`, which is not
+committed: CI downloads it (and the CV) from the `curriculum` repository.

@@ -1,0 +1,52 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PublicationCard from "../components/PublicationCard.tsx";
+import SlideCard from "../components/SlideCard.tsx";
+import { loadPublications, loadSlides } from "../lib/bibtex.ts";
+
+// Read at build time; CI fetches publications.bib before the build.
+const [publications, slides] = await Promise.all([
+  loadPublications(),
+  loadSlides(),
+]);
+// Card lists use `gap` rather than `space-y-*`: Astro wraps each island in an
+// <astro-island> element, which margins don't apply to.
+const preprints = publications.filter((p) => p.unpublished);
+const published = publications.filter((p) => !p.unpublished);
+---
+
+<Layout
+  title="Publications"
+  description="Academic publications by Jordi Manyer in computational mathematics and distributed computing."
+  path="/publications"
+>
+  <div class="space-y-8">
+    <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100">
+      Preprints
+    </h1>
+
+    <div class="flex flex-col gap-6">
+      {preprints.map((publication) => (
+        <PublicationCard client:visible publication={publication} />
+      ))}
+    </div>
+
+    <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100">
+      Publications
+    </h1>
+
+    <div class="flex flex-col gap-6">
+      {published.map((publication) => (
+        <PublicationCard client:visible publication={publication} />
+      ))}
+    </div>
+
+    <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100">
+      Slides
+    </h1>
+
+    <div class="flex flex-col gap-6">
+      {slides.map((slide) => <SlideCard slide={slide} />)}
+    </div>
+  </div>
+</Layout>

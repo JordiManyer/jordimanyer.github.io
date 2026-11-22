@@ -46,7 +46,7 @@ export default function MobileNav({ links, active }: MobileNavProps) {
         }`}
       >
         <div
-          class="absolute inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
+          class="absolute inset-0 bg-gray-500/75 transition-opacity"
           onClick={() => isOpen.value = false}
         />
         <nav class="relative flex flex-col h-full w-64 max-w-sm py-6 px-6 bg-white dark:bg-gray-800 overflow-y-auto">
